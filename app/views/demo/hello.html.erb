@@ -1,0 +1,29 @@
+<html>
+<body>
+<head>
+<title>Hello</title>
+</head>
+<h1>Demo#hello</h1>
+
+<p>Another test page!</p>
+
+<% @array.each do |n| %>
+  <p><%= n %></p>
+<% end %>
+
+<a href="/demo/index">Index - Html</a><br />
+
+<%= link_to('Index - Rails', {:action => 'index'}) %>
+<br />
+
+<h1>Display Params:</h1>
+<p>Id:<%= @id %></p>
+<p>Previous page: <%= @page.to_i - 1 %></p>
+<p>Current page: <%= @page.to_i %></p>
+<p>Next page: <%= @page.to_i + 1 %></p>
+
+<hr />
+
+<%= params.inspect %>
+</body>
+</html>
