@@ -11,9 +11,9 @@
   <p><%= n %></p>
 <% end %>
 
-<a href="/demo/index">Index - Html</a><br />
+<p><%= link_to('Index', {:action => 'index'}) %></p>
+<p><%= link_to('Other Page', {:action => 'other_page', :page => "2", :name => "Pedro Silva"}) %></p>
 
-<%= link_to('Index - Rails', {:action => 'index'}) %>
 <br />
 
 <h1>Display Params:</h1>
@@ -25,5 +25,6 @@
 <hr />
 
 <%= params.inspect %>
+
 </body>
 </html>

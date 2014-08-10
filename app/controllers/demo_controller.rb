@@ -3,11 +3,17 @@ class DemoController < ApplicationController
   layout false
 
   def index	
+    
+    # render(:template => 'demo/hello')
+    # render('demo/hello')
   	# render('hello')
+    
+    @myname = "Pedro Fernandes da Silva"  
+
   end
   
   def hello
-  	# render('index')
+  	
   	@array = [1,2,3,4,5]
   	@id = params['id']
   	@page = params[:page]
@@ -15,12 +21,13 @@ class DemoController < ApplicationController
   end
 
   def other_page
-  	redirect_to(:controller => 'demo', :action => 'index')
+  	
+    #redirect_to(:controller => 'demo', :action => 'index')
+
   end
 
   def google
   	redirect_to("http://www.google.com")
   end
-
 
 end
