@@ -4,13 +4,17 @@
 <title>Demo</title>
 </head>
 <h1>Demo#index</h1>
+
+<% @subject.each do |s| %>
+<h3><%= s.name %></h3>
+<% end %>	
+
 <p>Hello World</p>
 
 
 <p><%= link_to('Hello', {:action => 'hello', :page => 5, :id => 10}) %></p>
 <p><%= link_to('Other Page', {:action => 'other_page'}) %></p>
 
-<script type="text/javascript">alert("<%= @myname %>");</script>
 
 </body>
 </html>

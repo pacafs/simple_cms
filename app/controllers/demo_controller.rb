@@ -8,7 +8,7 @@ class DemoController < ApplicationController
     # render('demo/hello')
   	# render('hello')
     
-    @myname = "Pedro Fernandes da Silva"  
+    @subject = Subject.all
 
   end
   
