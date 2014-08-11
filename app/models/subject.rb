@@ -1,6 +1,6 @@
 class Subject < ActiveRecord::Base
 
-	has_one :page
+	has_many :pages
 
 	scope :visible, lambda { where(:visible => true) }
     scope :invisible, lambda { where(:visible => false) }
@@ -9,6 +9,5 @@ class Subject < ActiveRecord::Base
     scope :search, lambda { |query| 
     	where(["name LIKE ?", "%#{query}%"]) # %#{query}% -> To find also a substring not only th exact value!
     }
-
 
 end
