@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <body>
 <head>
@@ -14,7 +15,22 @@
 
 <p><%= link_to('Hello', {:action => 'hello', :page => 5, :id => 10}) %></p>
 <p><%= link_to('Other Page', {:action => 'other_page'}) %></p>
+<br>
+<br>
+<div class="testing"></div>
 
+<style type="text/css">
+.testing {
+		width: 900px;
+		height: 500px;
+		background-color:red;
+		background-image:url("http://blog.gettyimages.com/wp-content/uploads/2012/08/Marilyn-Monroe-photoshoot-Earl-Theisen-Getty-Images-149910488-e1345580428892-430x244.jpg");
+		background-blend-mode: screen;
+		-webkit-background-blend-mode: screen;
+		-webkit-background-size: cover;
+		background-size: cover;		
+}
+</style>
 
 </body>
 </html>
