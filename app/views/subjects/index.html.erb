@@ -22,9 +22,13 @@
   <td><%=  s.position %></td>		
   <td><%=  s.visible ? "Yes" : "No" %></td>
   <td><%=  s.pages.size %></td>
+  <% if s.pages.size > 0 %>
   <td><%=  s.pages.first.name %></td>
+  <% else %>
+  <td>-</td>
+  <% end %>
   <td><%=  link_to("Show", { :action => "show", :id => s.id }, :class => "action show") %></td>
-  <td><%=  link_to("Edit", "#", :class => "action edit") %></td>
+  <td><%=  link_to("Edit", { :action => "edit", :id => s.id }, :class => "action edit") %></td>
   <td><%=  link_to("Delete", "#", :class => "action delete") %></td>
 </tr>
 <% end %>

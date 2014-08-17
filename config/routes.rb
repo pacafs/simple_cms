@@ -64,6 +64,5 @@ SimpleCms::Application.routes.draw do
   #     resources :products
   #   end
 
-  match ':controller(/:action(/:id))', :via => :get
-
+  match ':controller(/:action(/:id))', :via => [:get, :post]
 end
