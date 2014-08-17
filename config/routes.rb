@@ -1,6 +1,11 @@
 SimpleCms::Application.routes.draw do
+
+  root "demo#index"  
   
-  root "demo#index"
+  get "subjects/index"
+  get "subjects/new"
+  get "subjects/show"
+  get "subjects/edit"
   
   #get "demo/index"
   

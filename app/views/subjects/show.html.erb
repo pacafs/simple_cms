@@ -1,0 +1,32 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+</head>
+<body>
+<h1><%= @subject.name %></h1>
+
+<br />
+
+<table style="text-align:center;" class="pure-table">
+<tr>
+  <th>Name</th>
+  <th>Position</th> 
+  <th>Visible</th>
+  <th>Pages</th>
+  <th>Created At</th>
+  <th>Updated At</th>
+</tr>
+<tr>
+
+  <td><%=  @subject.name %></td>
+  <td><%=  @subject.position %></td>		
+  <td><%=  @subject.visible ? "Yes" : "No" %></td>
+  <td><%=  @subject.pages.size %></td>
+  <td><%=  @subject.created_at %></td>
+  <td><%=  @subject.updated_at %></td>
+</tr>
+</table>
+</body>
+</html>
+
+
