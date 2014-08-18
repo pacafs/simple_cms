@@ -1,12 +1,16 @@
 <html>
 <head>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <style type="text/css">
+  .pure-table th{
+    background-color: #BDD5EE;
+  }
+  </style>
 </head>
 <body>
 <h1><%= @subject.name %></h1>
-
 <br />
-
+<%= link_to "Back", {:action => "index"} %>
 <table style="text-align:center;" class="pure-table">
 <tr>
   <th>Name</th>
@@ -17,7 +21,6 @@
   <th>Updated At</th>
 </tr>
 <tr>
-
   <td><%=  @subject.name %></td>
   <td><%=  @subject.position %></td>		
   <td><%=  @subject.visible ? "Yes" : "No" %></td>

@@ -1,6 +1,11 @@
 <html>
 <head>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <style type="text/css">
+  .pure-table th{
+    background-color: #BDD5EE;
+  }
+  </style>
 </head>
 <body>
 <h1>SUBJECTS</h1>
@@ -29,7 +34,7 @@
   <% end %>
   <td><%=  link_to("Show", { :action => "show", :id => s.id }, :class => "action show") %></td>
   <td><%=  link_to("Edit", { :action => "edit", :id => s.id }, :class => "action edit") %></td>
-  <td><%=  link_to("Delete", "#", :class => "action delete") %></td>
+  <td><%=  link_to("Delete", { :action => "delete", :id => s.id }, :class => "action delete") %></td>
 </tr>
 <% end %>
 </table>

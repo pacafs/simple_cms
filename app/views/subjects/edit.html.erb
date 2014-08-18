@@ -1,2 +1,28 @@
-<h1>Subjects#edit</h1>
-<p>Find me in app/views/subjects/edit.html.erb</p>
+<html>
+<head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+</head>
+<body>
+<h1>EDIT</h1>
+
+<%= form_for(:subject, :url =>{:action => "update", :id => @subject.id}) do |f| %>
+<table style="text-align:center;" class="pure-table">
+<tr>
+  <th>Name</th>
+  <td><%= f.text_field(:name) %></td>
+</tr> 
+<tr> 
+  <th>Position</th>
+  <td><%= f.text_field(:position) %></td>
+</tr>
+<tr>
+  <th>Visible</th>
+  <td><%= f.text_field(:visible) %></td>
+</tr>
+<tr><td colspan="2"><%= submit_tag("SUBMIT", :class => "pure-button pure-button-primary") %></td></tr>
+</table>
+<% end %>
+
+
+</body>
+</html>
