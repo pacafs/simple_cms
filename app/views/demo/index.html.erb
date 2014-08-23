@@ -4,6 +4,7 @@
 <head>
 <title>Demo</title>
 </head>
+<a href="#test">GO TO HERE</a>
 <h1>Demo#index</h1>
 
 <% @subject.each do |s| %>
@@ -14,7 +15,7 @@
 
 <p><%= link_to('Subjects', {:controller => "subjects", :action => 'index'}) %></p>
 <p><%= link_to('Hello', {:action => 'hello', :page => 5, :id => 10}) %></p>
-<p><%= link_to('Other Page', {:action => 'other_page'}) %></p>
+<p><%= link_to('Other Page', {:action => 'other_page'}, :id => "Hello") %></p>
 <br>
 <br>
 <div class="testing"></div>
@@ -31,7 +32,10 @@
 		background-size: cover;		
 }
 </style>
-
+<a name="test">CLICK ME</a>
+<%= 50.times do %>
+<p>Hello World</p>
+<% end%>
 </body>
 </html>
 

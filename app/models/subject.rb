@@ -1,6 +1,8 @@
 class Subject < ActiveRecord::Base
 
 	has_many :pages
+	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "64x64" }
+	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	scope :visible, lambda { where(:visible => true) }
     scope :invisible, lambda { where(:visible => false) }

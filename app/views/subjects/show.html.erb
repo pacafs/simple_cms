@@ -27,7 +27,19 @@
   <td><%=  @subject.pages.size %></td>
   <td><%=  @subject.created_at %></td>
   <td><%=  @subject.updated_at %></td>
-</tr>
+</tr>s
 </table>
+
+<div>
+  <h2>Pages</h2>
+  <% @subject.pages.each do |p|%>
+  <p><%= p.name %></p>
+  <p><%= p.subject.name %></p>
+  <p><%= p.permalink %></p>
+  <p><%= p.visible %></p>
+  <p><%= p.position %></p>
+  <% end %>
+</div>
+
 </body>
 </html>

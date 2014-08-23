@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   layout false
 
   def index
-   @subjects  = Subject.sorted
+   @subjects  = Subject.all
   end
 
   def new
@@ -55,7 +55,7 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(:name, :position, :visible, :image)
   end
 
 
