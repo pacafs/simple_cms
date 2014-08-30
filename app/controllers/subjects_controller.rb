@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
   layout false
 
   def index
-   @subjects  = Subject.all
+   @subjects  = Subject.sorted
   end
 
   def new
@@ -14,6 +14,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
+      flash[:notice] = "SUCCESS!"
       redirect_to(:action => 'index')
     else
       render('new')

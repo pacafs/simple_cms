@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
     	t.integer "subject_id"
     	#same as: t.references :subject
     	t.string "name"
-    	t.string "permalink"
+    	t.text "permalink"
     	t.integer "position"
     	t.boolean "visible", :default => false
         t.timestamps
