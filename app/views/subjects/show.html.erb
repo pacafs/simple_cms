@@ -12,13 +12,11 @@
 <body>
 
 <h1><%= @subject.name %></h1>
-<h2><%= flash[:test] %></h2>
 
-<br/>
-<%= link_to "Back", {:action => "index"} %>
 
 <table style="text-align:center;" class="pure-table">
 <tr>
+  <th>Picture</th>
   <th>Name</th>
   <th>Position</th> 
   <th>Visible</th>
@@ -27,6 +25,7 @@
   <th>Updated At</th>
 </tr>
 <tr>
+  <td><%= image_tag @subject.image.url(:medium) %></td>
   <td><%=  @subject.name %></td>
   <td><%=  @subject.position %></td>		
   <td><%=  @subject.visible ? "Yes" : "No" %></td>
@@ -46,6 +45,10 @@
   <p><%= p.position %></p>
   <% end %>
 </div>
+
+<br />
+<%= link_to subjects_edit_path(:id => @subject.id) do %><button class="pure-button pure-button-primary">Edit</button><% end %>
+<%= link_to subjects_index_path do %><button class="pure-button pure-button-primary">Back</button><% end %>
 
 </body>
 </html>
