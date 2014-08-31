@@ -26,7 +26,7 @@
 <tr><td colspan="2"><%= submit_tag("SUBMIT", :class => "pure-button pure-button-primary") %></td></tr>
 </table>
 <% end %>
-
+<%= link_to subjects_show_path(:id => @subject.id) do %><button class="pure-button pure-button-primary">Back</button><% end %>
 
 </body>
 </html>

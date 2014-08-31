@@ -14,7 +14,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      flash[:notice] = "SUCCESS!"
+      flash[:notice] = "TRUE"
       redirect_to(:action => 'index')
     else
       render('new')
