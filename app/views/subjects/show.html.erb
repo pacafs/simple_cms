@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
@@ -7,10 +8,15 @@
   }
   </style>
 </head>
+
 <body>
+
 <h1><%= @subject.name %></h1>
-<br />
+<h2><%= flash[:test] %></h2>
+
+<br/>
 <%= link_to "Back", {:action => "index"} %>
+
 <table style="text-align:center;" class="pure-table">
 <tr>
   <th>Name</th>
@@ -27,7 +33,7 @@
   <td><%=  @subject.pages.size %></td>
   <td><%=  @subject.created_at %></td>
   <td><%=  @subject.updated_at %></td>
-</tr>s
+</tr>
 </table>
 
 <div>

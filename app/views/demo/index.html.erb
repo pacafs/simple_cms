@@ -1,43 +1,71 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!doctype html>
+<html lang="en">
+
 <head>
-<title>Demo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive email layout.">
+<title>Buttler</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<!--[if lte IE 8]><link rel="stylesheet" href="css/layouts/email-old-ie.css"><![endif]--><!--[if gt IE 8]><!-->
+<!-- <link rel="stylesheet" href="email.css"> -->
+<%= stylesheet_link_tag "email.css" %>
+<!--<![endif]-->
 </head>
-<a href="#test">GO TO HERE</a>
-<h1>Demo#index</h1>
 
-<% @subject.each do |s| %>
-<h3><%= s.name %></h3>
-<% end %>	
+<body>
 
-<p>Hello World</p>
+<!-- CONTAINER -->
+<div id="layout" class="content pure-g">
 
-<p><%= link_to('Subjects', {:controller => "subjects", :action => 'index'}) %></p>
-<p><%= link_to('Hello', {:action => 'hello', :page => 5, :id => 10}) %></p>
-<p><%= link_to('Other Page', {:action => 'other_page'}, :id => "Hello") %></p>
-<br>
-<br>
-<div class="testing"></div>
+    <!-- LEFT NAVBAR -->
+    <div id="nav" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
 
-<style type="text/css">
-.testing {
-		width: 900px;
-		height: 500px;
-		background-color:red;
-		background-image:url("http://blog.gettyimages.com/wp-content/uploads/2012/08/Marilyn-Monroe-photoshoot-Earl-Theisen-Getty-Images-149910488-e1345580428892-430x244.jpg");
-		background-blend-mode: screen;
-		-webkit-background-blend-mode: screen;
-		-webkit-background-size: cover;
-		background-size: cover;		
-}
-</style>
-<a name="test">CLICK ME</a>
-<%= 50.times do %>
-<p>Hello World</p>
-<% end%>
+        <div class="nav-inner">
+
+            <div class="pure-menu pure-menu-open">
+                <ul>
+                    <li><a href="#">Index</a></li>
+                    <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"} %></li>
+                    <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
+                    <li class="pure-menu-heading">Labels</li>
+                    <li><a href="#"><span class="email-label-personal"></span>Personal</a></li>
+                    <li><a href="#"><span class="email-label-work"></span>Work</a></li>
+                    <li><a href="#"><span class="email-label-travel"></span>Travel</a></li>
+                    <li>
+                        <% if !flash[:notice].blank? %>
+                        <script type="text/javascript">alert("Successfully created subject!!");</script>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- LEFT NAVBAR -->
+
+    <!-- LEFT POST -->
+    <!-- LEFT POST -->
+
+<!-- Email Content Container -->
+<!-- Email Content Container -->
+
+
+<!-- CONTAINER -->
+
+<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+
+<script>
+YUI().use('node-base', 'node-event-delegate', function (Y) {
+    var menuButton = Y.one('.nav-menu-button'),
+        nav        = Y.one('#nav');
+    // Setting the active class name expands the menu vertically on small screens.
+    menuButton.on('click', function (e) {
+        nav.toggleClass('active');
+    });
+    // Your application code goes here...
+});
+</script>
 </body>
 </html>
-
-
 

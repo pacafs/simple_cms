@@ -14,10 +14,12 @@
 </head>
 
 <body>
+
 <!-- CONTAINER -->
 <div id="layout" class="content pure-g">
 
     <!-- LEFT NAVBAR -->
+
     <div id="nav" class="pure-u">
         <a href="#" class="nav-menu-button">Menu</a>
 
@@ -25,11 +27,9 @@
 
             <div class="pure-menu pure-menu-open">
                 <ul>
-                    <li><a href="#">Inbox <span class="email-count">(2)</span></a></li>
-                    <li><a href="#">Important</a></li>
-                    <li><a href="#">Sent</a></li>
-                    <li><a href="#">Drafts</a></li>
-                    <li><a href="#">Trash</a></li>
+                    <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
+                    <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"} %></li>
+                    <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
                     <li class="pure-menu-heading">Labels</li>
                     <li><a href="#"><span class="email-label-personal"></span>Personal</a></li>
                     <li><a href="#"><span class="email-label-work"></span>Work</a></li>
@@ -55,15 +55,11 @@
         <div class="email-item email-item-unread pure-g">
             <div class="pure-u">
              <%= image_tag s.image.url(:thumb), class: "email-avatar" %>
-             <!-- <img class="email-avatar" alt="Tilo Mitra&#x27;s avatar" height="64" width="64" src="img/common/tilo-avatar.png">-->
             </div>
-            <%= link_to subjects_index_path(:id => s.id)  do %>
+            <%= link_to subjects_show_path(:id => s.id)  do %>
             <div class="pure-u-3-4">
                 <h5 class="email-name"><%= s.name %></h5>
                 <h4 class="email-subject"><%= s.created_at.strftime("%d %b. %Y") %> - <%= s.created_at.strftime("%H:%M") %></h4>
-                <!-- <p class="email-desc">
-                    
-                </p> -->
             </div>
              <% end %>
         </div>
@@ -79,22 +75,18 @@
         <div class="email-content">
             <div class="email-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1 class="email-content-title">Hello from Toronto</h1>
+                    <h1 class="email-content-title">Title should be a here!</h1>
                     <p class="email-content-subtitle">
                         From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
                     </p>
                 </div>
 
                 <div class="email-content-controls pure-u-1-2">
-                    <button class="secondary-button pure-button">Reply</button>
+                    <%= link_to subjects_new_path do %><button class="secondary-button pure-button">New Subject</button><% end %>
                     <button class="secondary-button pure-button">Forward</button>
                     <button class="secondary-button pure-button">Move to</button>
                 </div>
             </div>
-
-            <!-- <div class="email-content-body">
-                 
-            </div> -->
         </div>
     </div>
 </div>
@@ -115,12 +107,6 @@ YUI().use('node-base', 'node-event-delegate', function (Y) {
     // Your application code goes here...
 });
 </script>
-
-
-
-
-
-
 </body>
 </html>
 
