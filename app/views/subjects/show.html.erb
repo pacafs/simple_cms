@@ -2,16 +2,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <style type="text/css">
-  .pure-table th{
-    background-color: #BDD5EE;
-  }
-  .btn_link {
-    color: white;
-    text-decoration: none;
-  }
-  </style>
-
+  <%= stylesheet_link_tag("email.css") %>
 </head>
 
 <body>
@@ -55,8 +46,6 @@
 
 <%= link_to subjects_edit_path(:id => @subject.id) do %><button class="pure-button pure-button-primary">Edit</button><% end %>
 <%= link_to subjects_index_path do %><button class="pure-button pure-button-primary">Back</button><% end %>
-<button class="button-error pure-button"><%= link_to "Delete", {:action => "destroy", :id => @subject.id}, class: "btn_link" %></button>
-
 
 </body>
 </html>
