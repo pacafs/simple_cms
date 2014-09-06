@@ -42,8 +42,8 @@
 
 <br />
 
-<%= link_to subjects_edit_path(:id => @subject.id) do %><button>Edit</button><% end %>
-<%= link_to subjects_index_path do %><button>Back</button><% end %>
+<%= link_to({:action => "edit", :id => @subject.id}) do %><button>Edit</button><% end %>
+<%= link_to({:action => "index"}) do %><button>Back</button><% end %> 
 
 <% if !flash[:subject].blank? %>
     <script type="text/javascript">alert("<%= flash[:subject] %>");</script>

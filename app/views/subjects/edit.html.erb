@@ -29,10 +29,12 @@
 <% end %>
 
 
-<%= link_to subjects_show_path(:id => @subject.id) do %><button>Back</button><% end %>
+<%= link_to({:action => "show", :id => @subject.id}) do %><button>Back</button><% end %>
 
 <button><%= link_to "Delete", {:action => "destroy", :id => @subject.id}, method: :delete,  class: "btn_link" %></button>
 	
 
+
+	
 </body>
 </html>

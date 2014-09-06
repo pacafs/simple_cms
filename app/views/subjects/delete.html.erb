@@ -9,7 +9,7 @@
 <p>Sure you wan't to delete: <%= @subject.name.capitalize %>?</p>
 
 <%= form_for(:subject, :url =>{:action => "destroy", :id => @subject.id}) do |f| %>
-<%= submit_tag("DELETE", :class => "pure-button pure-button-primary") %>
+<%= submit_tag("Delete") %>
 <% end %>
 
 </body>

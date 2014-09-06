@@ -6,6 +6,7 @@
 <p>Find me in app/views/subjects/new.html.erb</p>
 
 <%= form_for(:subject, :url =>{:action => "create"}, html: { multipart: true }) do |f| %>
+
 <table style="text-align:center;">
 <tr>
   <th>Name</th>
@@ -25,13 +26,12 @@
 </tr>
 <tr><td colspan="2"><%= submit_tag("Submit") %></td></tr>
 </table>
+
 <% end %>
 
 <br />
-  
-  <%= link_to subjects_index_path do %>
-      <button>Back</button>
-  <% end %>
+
+      <%= link_to({:action => "new"},  class: "btn_link") do %><button>Back</button><% end %>
 
 </body>
 </html>

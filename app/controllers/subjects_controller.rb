@@ -51,8 +51,7 @@ class SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject = Subject.find(params[:id])
-    @subject.destroy
+    subject = Subject.find(params[:id]).destroy
     redirect_to(:action => 'index')
     flash[:subject] = "DELETED"
   end

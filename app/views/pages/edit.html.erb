@@ -25,9 +25,9 @@
 <% end %>
 
 
-<%= link_to pages_show_path(:id => @page.id) do %><button>Back</button><% end %>
+<%= link_to({:action => "show", :id => @page.id}) do %><button>Back</button><% end %> 
 
-<button><%= link_to "Delete", {:action => "destroy", :id => @page.id}, method: :delete,  class: "btn_link" %></button>
+<%= link_to({:action => "destroy", :id => @page.id}, method: :delete,  class: "btn_link") do %><button>Delete</button><% end %>
 
 
 </body>

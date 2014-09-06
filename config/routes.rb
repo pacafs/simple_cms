@@ -2,20 +2,6 @@ SimpleCms::Application.routes.draw do
 
 root "demo#index"  
 
-
-  get "pages/index"
-  get "pages/show"
-  get "pages/new"
-  get "pages/edit"
-  get "pages/delete"
-  
-  
-  get "subjects/index"
-  get "subjects/new"
-  get "subjects/show"
-  get "subjects/edit"
-  get "subjects/delete"
-  
   #get "demo/index"
   
   # The priority is based upon order of creation: first created -> highest priority.

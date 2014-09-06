@@ -14,10 +14,10 @@
 
         <% @subjects.each do |s| %>
             <%= image_tag s.image.url(:thumb) %>
-            <%= link_to subjects_show_path(:id => s.id) do %><h5><%= s.name %></h5><% end %>
+            <%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
         <% end %>
 
-        <%= link_to subjects_new_path do %><button>New Subject</button><% end %>
+        <button><%= link_to "New Subject", {:action => "new"},  class: "btn_link" %></button>
 
 <% if !flash[:subject].blank? %>
     <script type="text/javascript">alert("<%= flash[:subject] %>");</script>

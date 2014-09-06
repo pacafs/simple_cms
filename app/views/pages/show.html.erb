@@ -34,12 +34,15 @@
 
 <br />
 
-<%= link_to pages_edit_path(:id => @page.id) do %><button>Edit</button><% end %>
-<%= link_to pages_index_path do %><button>Back</button><% end %>
+<%= link_to({:action => "edit", :id => @page.id}) do %><button>Edit</button><% end %>
+<%= link_to({:action => "index"}) do %><button>Back</button><% end %> 
+
 
 <% if !flash[:page].blank? %>
     <script type="text/javascript">alert("<%= flash[:page] %>");</script>
 <% end %>
+
+
 
 
 

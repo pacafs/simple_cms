@@ -14,18 +14,19 @@
 
 	 <% unless @pages.empty? %>
 		<% @pages.each do |p| %> 
-			<%= link_to pages_show_path(:id => p.id) do %><p><%= p.name %></p><% end %>
+			<%= link_to({:action => "show", :id => p.id}) do %><p><%= p.name %></p><% end %>
 			<p><%= p.permalink %></p>
 		<% end %>	
 	<% end %>
 
-    <%= link_to pages_new_path do %><button>New Page</button><% end %>
+    <button><%= link_to "New Page", {:action => "new"},  class: "btn_link" %></button>
 
-    
+
 
 <% if !flash[:page].blank? %>
     <script type="text/javascript">alert("<%= flash[:page] %>");</script>
 <% end %>
+
 
 </body>
 </html>
