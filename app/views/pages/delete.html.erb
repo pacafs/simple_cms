@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Delete</h1>
+
+<%= link_to "Back", {:action => "index"} %>
+
+<p>Sure you wan't to delete: <%= @page.name.capitalize %>?</p>
+
+<%= form_for(:page, :url =>{:action => "destroy", :id => @page.id}) do |f| %>
+<%= submit_tag("Delete") %>
+<% end %>
+
+</body>
+</html>

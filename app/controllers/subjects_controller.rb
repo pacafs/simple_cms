@@ -14,10 +14,11 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      flash[:notice] = "TRUE"
+      flash[:subject] = "CREATED"
       redirect_to(:action => 'index')
     else
       render('new')
+      flash[:subject] = "ERROR"
     end
 
   end
@@ -36,8 +37,10 @@ class SubjectsController < ApplicationController
     @subject.update_attributes(subject_params)
 
     if @subject.update_attributes(subject_params)
+      flash[:subject] = "UPDATED"
       redirect_to(:action => 'show', :id => @subject.id)
     else
+      flash[:subject] = "ERROR"
       render('index')
     end
 
@@ -51,6 +54,7 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     @subject.destroy
     redirect_to(:action => 'index')
+    flash[:subject] = "DELETED"
   end
 
   private

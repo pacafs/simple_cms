@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<h1><%= @page.name %></h1>
+
+
+<table style="text-align:center;">
+<tr>
+  <th>Name</th>
+  <th>Position</th> 
+  <th>Visible</th>
+  <th>Subject</th>
+  <th>Created At</th>
+  <th>Updated At</th>
+</tr>
+<tr>
+  <td><%=  @page.name %></td>
+  <td><%=  @page.position %></td>		
+  <td><%=  @page.visible ? "Yes" : "No" %></td>
+  <% if @page.subject.nil? %>
+  <td>None</td>
+  <% else %>
+  <td><%=  @page.subject.name %></td>
+  <% end %>
+  <td><%=  @page.created_at %></td>
+  <td><%=  @page.updated_at %></td>
+</tr>
+</table>
+
+
+<br />
+
+<%= link_to pages_edit_path(:id => @page.id) do %><button>Edit</button><% end %>
+<%= link_to pages_index_path do %><button>Back</button><% end %>
+
+<% if !flash[:page].blank? %>
+    <script type="text/javascript">alert("<%= flash[:page] %>");</script>
+<% end %>
+
+
+
+</body>
+</html>

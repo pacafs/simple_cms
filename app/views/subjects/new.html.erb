@@ -1,14 +1,12 @@
 <html>
 <head>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <%= stylesheet_link_tag("email.css") %>
 </head>
 <body>
 <h1>Subjects#new</h1>
 <p>Find me in app/views/subjects/new.html.erb</p>
 
 <%= form_for(:subject, :url =>{:action => "create"}, html: { multipart: true }) do |f| %>
-<table style="text-align:center;" class="pure-table">
+<table style="text-align:center;">
 <tr>
   <th>Name</th>
   <td><%= f.text_field(:name) %></td>
@@ -25,12 +23,15 @@
   <th>Image</th>
   <td><%= f.file_field(:image) %></td>
 </tr>
-<tr><td colspan="2"><%= submit_tag("SUBMIT", :class => "button-success pure-button") %></td></tr>
+<tr><td colspan="2"><%= submit_tag("Submit") %></td></tr>
 </table>
 <% end %>
-<br />
-<%= link_to subjects_index_path do %><button class="pure-button pure-button-primary">Back</button><% end %>
 
+<br />
+  
+  <%= link_to subjects_index_path do %>
+      <button>Back</button>
+  <% end %>
 
 </body>
 </html>

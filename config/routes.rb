@@ -1,11 +1,20 @@
 SimpleCms::Application.routes.draw do
 
-  root "demo#index"  
+root "demo#index"  
+
+
+  get "pages/index"
+  get "pages/show"
+  get "pages/new"
+  get "pages/edit"
+  get "pages/delete"
+  
   
   get "subjects/index"
   get "subjects/new"
   get "subjects/show"
   get "subjects/edit"
+  get "subjects/delete"
   
   #get "demo/index"
   
@@ -65,4 +74,5 @@ SimpleCms::Application.routes.draw do
   #   end
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
+  
 end

@@ -1,34 +1,38 @@
 <html>
 <head>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <%= stylesheet_link_tag("email.css") %>
 </head>
 <body>
 <h1>EDIT</h1>
 
 <%= form_for(:subject, :url =>{:action => "update", html: { multipart: true }, :id => @subject.id}) do |f| %>
-<table style="text-align:center;" class="pure-table">
-<tr>
-  <th>Name</th>
-  <td><%= f.text_field(:name) %></td>
-</tr> 
-<tr> 
-  <th>Position</th>
-  <td><%= f.text_field(:position) %></td>
-</tr>
-<tr>
-  <th>Visible</th>
-  <td><%= f.text_field(:visible) %></td>
-</tr>
-<tr>
-  <th>Image</th>
-  <td><%= f.file_field(:image) %></td>
-</tr>
-<tr><td colspan="2"><%= submit_tag("SUBMIT", :class => "button-success pure-button") %></td></tr>
-</table>
+
+	<table style="text-align:center;">
+	<tr>
+	  <th>Name</th>
+	  <td><%= f.text_field(:name) %></td>
+	</tr> 
+	<tr> 
+	  <th>Position</th>
+	  <td><%= f.text_field(:position) %></td>
+	</tr>
+	<tr>
+	  <th>Visible</th>
+	  <td><%= f.text_field(:visible) %></td>
+	</tr>
+	<tr>
+	  <th>Image</th>
+	  <td><%= f.file_field(:image) %></td>
+	</tr>
+	<tr><td colspan="2"><%= submit_tag("Submit") %></td></tr>
+	</table>
+
 <% end %>
-<%= link_to subjects_show_path(:id => @subject.id) do %><button class="pure-button pure-button-primary">Back</button><% end %>
-<button class="pure-button button-error"><%= link_to "Delete", {:action => "destroy", :id => @subject.id}, class: "btn_link" %></button>
+
+
+<%= link_to subjects_show_path(:id => @subject.id) do %><button>Back</button><% end %>
+
+<button><%= link_to "Delete", {:action => "destroy", :id => @subject.id}, method: :delete,  class: "btn_link" %></button>
+	
 
 </body>
 </html>

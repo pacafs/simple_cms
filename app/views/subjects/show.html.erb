@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-  <%= stylesheet_link_tag("email.css") %>
 </head>
 
 <body>
@@ -10,7 +8,7 @@
 <h1><%= @subject.name %></h1>
 
 
-<table style="text-align:center;" class="pure-table">
+<table style="text-align:center;">
 <tr>
   <th>Picture</th>
   <th>Name</th>
@@ -44,8 +42,14 @@
 
 <br />
 
-<%= link_to subjects_edit_path(:id => @subject.id) do %><button class="pure-button pure-button-primary">Edit</button><% end %>
-<%= link_to subjects_index_path do %><button class="pure-button pure-button-primary">Back</button><% end %>
+<%= link_to subjects_edit_path(:id => @subject.id) do %><button>Edit</button><% end %>
+<%= link_to subjects_index_path do %><button>Back</button><% end %>
+
+<% if !flash[:subject].blank? %>
+    <script type="text/javascript">alert("<%= flash[:subject] %>");</script>
+<% end %>
+
+
 
 </body>
 </html>
