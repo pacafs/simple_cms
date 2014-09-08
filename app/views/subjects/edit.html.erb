@@ -1,40 +1,16 @@
-<html>
-<head>
-</head>
-<body>
 <h1>EDIT</h1>
 
 <%= form_for(:subject, :url =>{:action => "update", html: { multipart: true }, :id => @subject.id}) do |f| %>
 
-	<table style="text-align:center;">
-	<tr>
-	  <th>Name</th>
-	  <td><%= f.text_field(:name) %></td>
-	</tr> 
-	<tr> 
-	  <th>Position</th>
-	  <td><%= f.text_field(:position) %></td>
-	</tr>
-	<tr>
-	  <th>Visible</th>
-	  <td><%= f.text_field(:visible) %></td>
-	</tr>
-	<tr>
-	  <th>Image</th>
-	  <td><%= f.file_field(:image) %></td>
-	</tr>
-	<tr><td colspan="2"><%= submit_tag("Submit") %></td></tr>
-	</table>
+	  <%= f.text_field(:name) %>
+	  <%= f.text_field(:position) %>
+	  <%= f.text_field(:visible) %>
+	  <%= f.file_field(:image) %>
+	  <%= submit_tag("Submit") %>
 
 <% end %>
 
-
 <%= link_to({:action => "show", :id => @subject.id}) do %><button>Back</button><% end %>
 
-<button><%= link_to "Delete", {:action => "destroy", :id => @subject.id}, method: :delete,  class: "btn_link" %></button>
+<%= link_to({:action => "destroy", :id => @subject.id}, method: :delete,  class: "btn_link") do %><button>Delete</button><% end%>
 	
-
-
-	
-</body>
-</html>

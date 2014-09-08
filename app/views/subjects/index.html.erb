@@ -1,29 +1,13 @@
-<!doctype html>
-<head>
-<title>Buttler</title>
-</head>
+<ul>
+    <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
+    <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"}, class: "navbar_link" %></li>
+    <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
+    <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
+</ul>
 
-<body>
-
-    <ul>
-        <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
-        <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"}, class: "navbar_link" %></li>
-        <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
-        <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
-    </ul>
-
-        <% @subjects.each do |s| %>
-            <%= image_tag s.image.url(:thumb) %>
-            <%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
-        <% end %>
-
-        <button><%= link_to "New Subject", {:action => "new"},  class: "btn_link" %></button>
-
-<% if !flash[:subject].blank? %>
-    <script type="text/javascript">alert("<%= flash[:subject] %>");</script>
+<% @subjects.each do |s| %>
+    <%= image_tag s.image.url(:thumb) %>
+    <%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
 <% end %>
 
-</body>
-</html>
-
-
+<%= link_to({:action => "new"},  class: "btn_link") do %><button>New Subject</button><% end %>

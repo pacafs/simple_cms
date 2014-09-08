@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  layout false
+  # layout false
 
   def index
    @subjects  = Subject.sorted
@@ -14,11 +14,11 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
-      flash[:subject] = "CREATED"
+      flash[:notice] = "SUBJECT CREATED"
       redirect_to(:action => 'index')
     else
       render('new')
-      flash[:subject] = "ERROR"
+      flash[:notice] = "ERROR"
     end
 
   end
@@ -37,10 +37,10 @@ class SubjectsController < ApplicationController
     @subject.update_attributes(subject_params)
 
     if @subject.update_attributes(subject_params)
-      flash[:subject] = "UPDATED"
+      flash[:notice] = "SUBJECT UPDATED"
       redirect_to(:action => 'show', :id => @subject.id)
     else
-      flash[:subject] = "ERROR"
+      flash[:notice] = "ERROR"
       render('index')
     end
 
@@ -53,7 +53,7 @@ class SubjectsController < ApplicationController
   def destroy
     subject = Subject.find(params[:id]).destroy
     redirect_to(:action => 'index')
-    flash[:subject] = "DELETED"
+    flash[:notice] = "SUBJECT DELETED"
   end
 
   private

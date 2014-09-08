@@ -1,2 +1,13 @@
-<h1>Sections#index</h1>
-<p>Find me in app/views/sections/index.html.erb</p>
+<ul>
+    <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
+    <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"}, class: "navbar_link" %></li>
+    <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
+    <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
+</ul>
+
+<% @sections.each do |s| %> 
+	<%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
+	<p><%= s.content_type %></p>
+<% end %>	
+
+<%= link_to({:action => "new"},  class: "btn_link") do %><button>New Section</button><% end %>

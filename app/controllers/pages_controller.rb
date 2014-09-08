@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  layout false
+  # layout false
 
   def index
     @pages = Page.visible
@@ -19,10 +19,10 @@ class PagesController < ApplicationController
     @page = Page.new(safeparams)
 
     if @page.save
-      flash[:page] = "CREATED"
+      flash[:notice] = "PAGE CREATED"
       redirect_to(:action => "index")
     else
-      flash[:page] = "ERROR"
+      flash[:notice] = "ERROR"
       render("new")
     end
 
@@ -38,10 +38,10 @@ class PagesController < ApplicationController
     @page.update_attributes(safeparams)
 
     if @page.update_attributes(safeparams)
-      flash[:page] = "UPDATED"
+      flash[:notice] = "PAGE UPDATED"
       redirect_to(:action => "show", :id => @page.id)
     else
-      flash[:page] = "ERROR"
+      flash[:notice] = "ERROR"
       render("index")
     end
 
@@ -54,7 +54,7 @@ class PagesController < ApplicationController
   def destroy
     page = Page.find(params[:id]).destroy
     redirect_to(:action => 'index')
-    flash[:page] = "DELETED"
+    flash[:notice] = "PAGE DELETED"
   end
 
   private

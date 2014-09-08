@@ -1,2 +1,27 @@
-<h1>Sections#show</h1>
-<p>Find me in app/views/sections/show.html.erb</p>
+<h1><%= @section.name %></h1>
+
+
+<table style="text-align:center;">
+<tr>
+  <th>Name</th>
+  <th>Visible</th>
+  <th>Content Type</th>
+  <th>Content</th>
+  <th>Created At</th>
+  <th>Updated At</th>
+</tr>
+<tr>
+  <td><%=  @section.name %></td>		
+  <td><%=  @section.visible ? "Yes" : "No" %></td>
+  <td><%=  @section.content_type %></td>
+  <td><%=  @section.content %></td>
+  <td><%=  @section.created_at %></td>
+  <td><%=  @section.updated_at %></td>
+</tr>
+</table>
+
+
+<br />
+
+<%= link_to({:action => "edit", :id => @section.id}) do %><button>Edit</button><% end %>
+<%= link_to({:action => "index"}) do %><button>Back</button><% end %> 

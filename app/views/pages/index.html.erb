@@ -1,32 +1,15 @@
-<!doctype html>
-<head>
-<title>Buttler</title>
-</head>
+<ul>
+    <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
+    <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"}, class: "navbar_link" %></li>
+    <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
+    <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
+</ul>
 
-<body>
-
-    <ul>
-        <li><%= link_to "Index", {:controller => "demo", :action => "index"} %></li>
-        <li><%= link_to "Subjects", {:controller => "subjects", :action => "index"}, class: "navbar_link" %></li>
-        <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
-        <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
-    </ul>
-
-	 <% unless @pages.empty? %>
-		<% @pages.each do |p| %> 
-			<%= link_to({:action => "show", :id => p.id}) do %><p><%= p.name %></p><% end %>
-			<p><%= p.permalink %></p>
-		<% end %>	
-	<% end %>
-
-    <button><%= link_to "New Page", {:action => "new"},  class: "btn_link" %></button>
-
-
-
-<% if !flash[:page].blank? %>
-    <script type="text/javascript">alert("<%= flash[:page] %>");</script>
+ <% unless @pages.empty? %>
+	<% @pages.each do |p| %> 
+		<%= link_to({:action => "show", :id => p.id}) do %><p><%= p.name %></p><% end %>
+		<p><%= p.permalink %></p>
+	<% end %>	
 <% end %>
 
-
-</body>
-</html>
+<%= link_to({:action => "new"},  class: "btn_link") do %><button>New Page</button><% end %>
