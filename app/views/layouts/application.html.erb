@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<%= stylesheet_link_tag "styles.css" %>
 </head>
 
 <body>
@@ -26,5 +27,6 @@
     <script type="text/javascript">alert("<%= flash[:notice] %>");</script>
 <% end %>
 
+<%= javascript_include_tag "script.js" %>
 </body>
 </html>
