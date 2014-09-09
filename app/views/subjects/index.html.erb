@@ -6,8 +6,19 @@
 </ul>
 
 <% @subjects.each do |s| %>
-    <%= image_tag s.image.url(:thumb) %>
-    <%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
+
+    <div class="panel panel-success box">
+    
+	    <div class="panel-body">
+			<%= link_to s.image.url(:large), class: "test" do %><%= image_tag s.image.url(:medium), class: "center_img" %><% end %>
+		</div>
+		
+		<div class="panel-footer">    
+			<%= link_to({:action => "show", :id => s.id}) do %><%= s.name %><% end %>
+		</div>
+
+	</div>
+
 <% end %>
 
 <%= link_to({:action => "new"},  class: "btn_link") do %><button>New Subject</button><% end %>

@@ -28,5 +28,19 @@
 <% end %>
 
 <%= javascript_include_tag "script.js" %>
+<%= javascript_include_tag "jquery.loupe.js" %>
+<script>
+$(document).ready(function(){
+
+		$('.test').each(function(e){
+			$(this).attr( "id", e );
+			$('#' + e).loupe();
+		});
+
+		$(window).scroll(function() {  
+			$(".loupe").css("display","none");
+		});	
+});
+</script>
 </body>
 </html>
