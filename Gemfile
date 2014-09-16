@@ -38,6 +38,8 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'rails_12factor', group: :production
 # AmazonWebServices
 gem 'aws-sdk'
+# New Relic
+gem 'newrelic_rpm'
 
 
 # Use ActiveModel has_secure_password
