@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.loupe
+//= require Chart
 //= require_tree .
+
