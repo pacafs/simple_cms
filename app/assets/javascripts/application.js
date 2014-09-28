@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require jquery.loupe
 //= require Chart
+//= require main
 //= require_tree .
 

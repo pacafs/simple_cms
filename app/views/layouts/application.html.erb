@@ -10,28 +10,27 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
 </head>
 
 <body>
 
-<div class="container">
+<!-- <div class="container"> -->
 
 <%= yield %>
 
-<canvas id="myChart" width="800" height="200"></canvas>
+<!-- <canvas id="myChart" width="800" height="200"></canvas> -->
 
-</div>
+<!-- </div> -->
 
 <% if !flash[:notice].blank? %>
     <script type="text/javascript">alert("<%= flash[:notice] %>");</script>
 <% end %>
 
 
-<script>
+<!-- <script>
 $(document).ready(function(){
 
 		$('.test').each(function(e){
@@ -44,9 +43,9 @@ $(document).ready(function(){
 		});
 
 });
-</script>	
+</script> -->	
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 var ctx = $("#myChart").get(0).getContext("2d");
 
@@ -78,6 +77,6 @@ var data = {
 
 var myLineChart = new Chart(ctx).Line(data, {});
 
-</script>
+</script> -->
 </body>
 </html>
