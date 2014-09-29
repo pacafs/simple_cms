@@ -16,5 +16,6 @@
 //= require jquery.loupe
 //= require Chart
 //= require main
+//= require map
 //= require_tree .
 

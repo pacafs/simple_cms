@@ -2,6 +2,8 @@ SimpleCms::Application.routes.draw do
   
 root "demo#index"  
 
+get 'contact' => 'demo#contact'
+
   #get "demo/index"
   
   # The priority is based upon order of creation: first created -> highest priority.

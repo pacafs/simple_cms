@@ -1,8 +1,30 @@
 jQuery(function($){
 
-	var longitude = 41.182338;
-	var latitude = -8.653831;
+	var directionsService = new google.maps.DirectionsService();
+	var longitude;
+	var latitude;
 	var canvas = "map";
+
+	var start = new google.maps.LatLng(41.199065,-8.7052);
+	var way2  = new google.maps.LatLng(41.199817,-8.705066);
+	var way3  = new google.maps.LatLng(41.198158,-8.703186);
+	var end   = new google.maps.LatLng(41.197833,-8.705144);
+
+	
+
+	function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	    } else {
+	    	alert("Can´t get your Location");
+	    }
+	}
+
+	function showPosition(position) {
+	    longitude  = position.coords.latitude;
+	    latitude   = position.coords.longitude; 
+	    randing_map(canvas, longitude, latitude);
+	}
 	
 	function randing_map(canvas, lan, lat){			
 
@@ -22,14 +44,14 @@ jQuery(function($){
 			var marker = new google.maps.Marker({
 			    position : myLatlng,
 			    map      : map,
-			    icon     : "img/point.png"
+			    icon     : "assets/point.png"
 			});
 
 			// Map Marker
 			var marker2 = new google.maps.Marker({
-			    position : myLatlng,
+			    position : way3,
 			    map      : map,
-			    icon     : "img/point.png"
+			    icon     : "assets/point.png"
 			});
 
 			// Map Styles
@@ -70,19 +92,38 @@ jQuery(function($){
 			    map.setCenter(myLatlng);
 				});
 
-			var homeControlDiv = document.getElementById('panel');
-
-			google.maps.event.addDomListener(homeControlDiv, 'click', function() {
-			  map.getStreetView().setOptions({visible:true,position:chicago});
-			});
-
+			calcRoute(way2,way3);
 	}
 
+	function calcRoute(w1,w2) {
+	  
+		var waypts  = [];
+		var myarray = [w1,w2];
 
-	randing_map(canvas, longitude, latitude);
+		for (var i = 0; i < myarray.length; i++) {
+		      waypts.push({
+		          location:myarray[i],
+		          stopover:true
+		      });
+		}
+
+		var request = {
+		      
+	      origin: start,
+	      destination: end,
+	      waypoints: waypts,
+	      optimizeWaypoints: true,
+	      travelMode: google.maps.TravelMode.DRIVING
+		
+		}
+
+		directionsService.route(request);
+	
+	}
+
+	google.maps.event.addDomListener(window, "load", getLocation);
 
 });
-
 
 
 ////////////////////////////////////////

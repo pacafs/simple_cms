@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
@@ -29,8 +30,24 @@
     <script type="text/javascript">alert("<%= flash[:notice] %>");</script>
 <% end %>
 
+<script>
+var pos;
 
-<!-- <script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        pos = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    pos = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+</script>
+
+<script>
 $(document).ready(function(){
 
 		$('.test').each(function(e){
@@ -43,7 +60,7 @@ $(document).ready(function(){
 		});
 
 });
-</script> -->	
+</script>	
 
 <!-- <script type="text/javascript">
 
