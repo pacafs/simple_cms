@@ -1,16 +1,8 @@
 jQuery(function($){
 
-	var directionsService = new google.maps.DirectionsService();
 	var longitude;
 	var latitude;
 	var canvas = "map";
-
-	var start = new google.maps.LatLng(41.199065,-8.7052);
-	var way2  = new google.maps.LatLng(41.199817,-8.705066);
-	var way3  = new google.maps.LatLng(41.198158,-8.703186);
-	var end   = new google.maps.LatLng(41.197833,-8.705144);
-
-	
 
 	function getLocation() {
 	    if (navigator.geolocation) {
@@ -40,16 +32,16 @@ jQuery(function($){
 					}			
 			var map = new google.maps.Map( document.getElementById(canvas), myOptions );
 			
-			// Map Marker
+			// Map Marker 1
 			var marker = new google.maps.Marker({
 			    position : myLatlng,
 			    map      : map,
 			    icon     : "assets/point.png"
 			});
 
-			// Map Marker
+			// Map Marker 2
 			var marker2 = new google.maps.Marker({
-			    position : way3,
+			    position : myLatlng,
 			    map      : map,
 			    icon     : "assets/point.png"
 			});
@@ -92,36 +84,9 @@ jQuery(function($){
 			    map.setCenter(myLatlng);
 				});
 
-			calcRoute(way2,way3);
 	}
 
-	function calcRoute(w1,w2) {
-	  
-		var waypts  = [];
-		var myarray = [w1,w2];
-
-		for (var i = 0; i < myarray.length; i++) {
-		      waypts.push({
-		          location:myarray[i],
-		          stopover:true
-		      });
-		}
-
-		var request = {
-		      
-	      origin: start,
-	      destination: end,
-	      waypoints: waypts,
-	      optimizeWaypoints: true,
-	      travelMode: google.maps.TravelMode.DRIVING
-		
-		}
-
-		directionsService.route(request);
-	
-	}
-
-	google.maps.event.addDomListener(window, "load", getLocation);
+	google.maps.event.addDomListener(window, 'load', getLocation);
 
 });
 
