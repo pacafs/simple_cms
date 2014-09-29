@@ -1,26 +1,40 @@
 jQuery(function($){
 
+	var directionsDisplay;
+	var directionsService = new google.maps.DirectionsService();
+	
+	var end = new google.maps.LatLng(41.17984,-8.6536);
+	// var start = new google.maps.LatLng(41.17984, -8.6536);
+
 	var longitude;
 	var latitude;
 	var canvas = "map";
+	var myLatlng;
 
 	function getLocation() {
+	
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
 	    } else {
 	    	alert("Can´t get your Location");
 	    }
+	
 	}
 
 	function showPosition(position) {
+	    
 	    longitude  = position.coords.latitude;
 	    latitude   = position.coords.longitude; 
+	    
 	    randing_map(canvas, longitude, latitude);
+
 	}
 	
 	function randing_map(canvas, lan, lat){			
 
-			var myLatlng = new google.maps.LatLng(lan,lat);
+			myLatlng = new google.maps.LatLng(lan,lat);
+
+			directionsDisplay = new google.maps.DirectionsRenderer();
 			
 			var myOptions = {
 						zoom: 17,
@@ -82,11 +96,39 @@ jQuery(function($){
 			google.maps.event.addListener(map, 'zoom_changed', function() {
 			    var zoomLevel = map.getZoom();
 			    map.setCenter(myLatlng);
-				});
+			});
+
+			calcRoute();
+			directionsDisplay.setMap(map);
 
 	}
 
+	function calcRoute() {
+	  var start  = myLatlng;
+	  var end_2  = end;
+	  var waypts = [];
+
+	  var request = {
+	      origin: start,
+	      destination: end,
+	      //waypoints: waypts,
+	      optimizeWaypoints: true,
+	      travelMode: google.maps.TravelMode.DRIVING
+	  };
+
+	  directionsService.route(request, function(response, status) {
+	    
+	    if (status == google.maps.DirectionsStatus.OK) {
+	      directionsDisplay.setDirections(response);
+	    } else {
+	    	alert("Fucked Up");
+	    }
+
+	  });
+	}
+
 	google.maps.event.addDomListener(window, 'load', getLocation);
+
 
 });
 

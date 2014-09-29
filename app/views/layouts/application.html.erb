@@ -31,23 +31,6 @@
 <% end %>
 
 <script>
-var pos;
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        pos = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    pos = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-}
-</script>
-
-<script>
 $(document).ready(function(){
 
 		$('.test').each(function(e){
@@ -60,7 +43,7 @@ $(document).ready(function(){
 		});
 
 });
-</script>	
+</script>
 
 <!-- <script type="text/javascript">
 
