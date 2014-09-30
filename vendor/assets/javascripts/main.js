@@ -65,9 +65,9 @@ $(document).ready(function(){
         tooltip.remove();
     });
 
+    // My Code // 
 
 });
-
 
 
 

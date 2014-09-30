@@ -1,42 +1,53 @@
 jQuery(function($){
 
+	var a = "assets/piano.png";
+	var b = "assets/food.ico";
+	var c = "assets/bar.png";
+	var d = "assets/beer.png";
+
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
 	
-	var start  = new google.maps.LatLng(41.183157,-8.652716);
-	var end    = new google.maps.LatLng(41.17984,-8.6536);
+	var start  = new google.maps.LatLng(41.177293, -8.657569);
+	var end    = new google.maps.LatLng(41.17984,  -8.6536);
 	var waipt1 = new google.maps.LatLng(41.180813, -8.65687);
 	var waipt2 = new google.maps.LatLng(41.179756, -8.656553);
+
+	// var test for the params in getLocation()
+	var test;
 
 	var longitude;
 	var latitude;
 	var canvas = "map";
 	var myLatlng;
 
-	var content1 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 100px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='42' width='42'></div>"
-				 + "<h1>1</h1>"
+	var content1 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
+				 + "<div><img src='http://www.oocities.org/unlklavier/Paul-performing.jpg' alt='Smiley face' height='80' width='80'></div>"
+				 + "<h1>Piano Concerto</h1>"
 				 + "</div>";
 
-	var content2 = "<div style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 100px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='42' width='42'></div>"
-				 + "<h1>2</h1>"
+	var content2 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+				 + "<div><img src='http://tm222.dd14.firma5.com/wp-content/uploads/Bild11.jpg' alt='Smiley face' height='80' width='80'></div>"
+				 + "<h1>Restaurant</h1>"
 				 + "</div>";
 
-    var content3 = "<div style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 100px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='42' width='42'></div>"
-				 + "<h1>3</h1>"
+    var content3 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='80' width='80'></div>"
+				 + "<h1>NightClub</h1>"
 				 + "</div>";
 
-    var content4 = "<div style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 100px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='42' width='42'></div>"
-				 + "<h1>4</h1>"
+    var content4 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+				 + "<div><img src='http://www.sanfranciscosentinel.com/wp-content/uploads/2008/04/barleycorn-1.jpg' alt='Smiley face' height='80' width='80'></div>"
+				 + "<h1>Classic Pub</h1>"
 				 + "</div>";
 
-	function getLocation() {
-	
+	jQuery.getloc = function getLocation(test_me) {
+		
+		$(".main").empty().html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
+
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
+	        test = test_me;
 	    } else {
 	    	alert("Can´t get your Location");
 	    }
@@ -48,15 +59,15 @@ jQuery(function($){
 	    longitude  = position.coords.latitude;
 	    latitude   = position.coords.longitude; 
 	    
-	    randing_map(canvas, longitude, latitude);
+	    randing_map(canvas, longitude, latitude, test);
 
 	}
 	
-	function randing_map(canvas, lan, lat){			
+	function randing_map(canvas, lan, lat, check_me){			
 
 			myLatlng = new google.maps.LatLng(lan,lat);
 
-			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: check_me});
 			
 			var myOptions = {
 						zoom: 17,
@@ -78,29 +89,40 @@ jQuery(function($){
 			var marker1 = new google.maps.Marker({
 			    position : start,
 			    map      : map,
-			    icon     : "assets/piano.png"
+			    icon     : a
 			});
 
 			// Map Marker 2
 			var marker2 = new google.maps.Marker({
 			    position : waipt1,
 			    map      : map,
-			    icon     : "assets/food.ico"
+			    icon     : b
 			});
 
 			// Map Marker 3
 			var marker3 = new google.maps.Marker({
 			    position : waipt2,
 			    map      : map,
-			    icon     : "assets/bar.png"
+			    icon     : c
 			});
 
 			// Map Marker 4
 			var marker4 = new google.maps.Marker({
 			    position : end,
 			    map      : map,
-			    icon     : "assets/beer.png"
+			    icon     : d
 			});
+
+			if(check_me == true){
+			
+				// pass this if statement
+			
+			} else {
+				marker1.setVisible(false);
+				marker2.setVisible(false);
+				marker3.setVisible(false);
+				marker4.setVisible(false);
+			}
 
 			// Map Styles
 			var styles = [
@@ -179,17 +201,33 @@ jQuery(function($){
 	  };
 
 	  directionsService.route(request, function(response, status) {
-	    
-	    if (status == google.maps.DirectionsStatus.OK) {
-	      directionsDisplay.setDirections(response);
-	    } else {
-	    	alert("Fucked Up");
-	    }
 
+	    	if (status == google.maps.DirectionsStatus.OK){
+	    		directionsDisplay.setDirections(response);
+	    	} else {
+	    	    alert(status);
+	    	}
 	  });
+	
 	}
 
-	google.maps.event.addDomListener(window, 'load', getLocation);
 
+	function handler1(e) {
+        e.preventDefault();
+        //function 1 here ...
+        $.getloc(false);
+        $(this).one("click", handler2);
+    }
+    
+    function handler2(e) {
+        e.preventDefault();
+        //function 2 here ...
+        $.getloc(true);
+        $(this).one("click", handler1);
+    }
+
+    $("#fb").one("click", handler1);
+
+	google.maps.event.addDomListener(window, 'load', $.getloc(true));
 
 });	

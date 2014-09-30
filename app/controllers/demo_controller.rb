@@ -30,4 +30,7 @@ class DemoController < ApplicationController
   	redirect_to("http://www.google.com")
   end
 
+  def contact
+  end
+
 end

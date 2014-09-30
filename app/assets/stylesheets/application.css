@@ -12,7 +12,6 @@
  *= require main
  *= require styles
  *= require_self
- *= require_tree .
  */
 
 
