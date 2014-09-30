@@ -65,7 +65,7 @@ jQuery(function($){
 	
 	function randing_map(canvas, lan, lat, check_me){			
 
-			myLatlng = new google.maps.LatLng(lan,lat);
+			myLatlng = new google.maps.LatLng(41.177293, -8.657569); //new google.maps.LatLng(lan,lat);
 
 			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: check_me});
 			
@@ -81,7 +81,7 @@ jQuery(function($){
 			
 			// My Position
 			var marker = new google.maps.Marker({
-			    position : myLatlng,
+			    position : start,
 			    map      : map,
 			    icon     : "assets/point.png"
 			});
