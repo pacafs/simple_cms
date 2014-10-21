@@ -1,9 +1,9 @@
 jQuery(function($){
 
-	var a = "assets/piano.png";
-	var b = "assets/food.ico";
-	var c = "assets/bar.png";
-	var d = "assets/beer.png";
+	var a = "assets/piano6.png";
+	var b = "assets/fork28.png";
+	var c = "assets/cocktail22.png";
+	var d = "assets/mirrors.png";
 
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
@@ -13,7 +13,7 @@ jQuery(function($){
 	var waipt1 = new google.maps.LatLng(41.180813, -8.65687);
 	var waipt2 = new google.maps.LatLng(41.179756, -8.656553);
 
-	// var test for the params in getLocation()
+	// var test for the arguments on getLocation()
 	var test;
 
 	var longitude;
@@ -214,19 +214,21 @@ jQuery(function($){
 
 	function handler1(e) {
         e.preventDefault();
-        //function 1 here ...
+        // function 1 here ...
         $.getloc(false);
-        $(this).one("click", handler2);
+        // $(this).one("click", handler2);
     }
     
     function handler2(e) {
         e.preventDefault();
-        //function 2 here ...
+        // function 2 here ...
         $.getloc(true);
-        $(this).one("click", handler1);
+        // $(this).one("click", handler1);
     }
 
-    $("#fb").one("click", handler1);
+    $("#fb").on("click", handler2);
+
+    $("#go").on("click", handler1);
 
 	google.maps.event.addDomListener(window, 'load', $.getloc(true));
 
