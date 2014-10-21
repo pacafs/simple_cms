@@ -1,4 +1,4 @@
-//$(document).ready(function(){
+$(document).ready(function(){
 
 
 
@@ -67,7 +67,7 @@
 
     // My Code // 
 
-//});
+});
 
 
 

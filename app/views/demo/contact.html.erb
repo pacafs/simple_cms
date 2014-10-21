@@ -9,7 +9,7 @@
 				<li><%= link_to "Home", {:controller => "demo", :action => "index"} %></li>
 				<li><a href="javascript:void(0)">About</a></li>
 				<li><a href="javascript:void(0)">The Team</a></li>
-				<li><%= link_to "Route", {:controller => "demo", :action => "contact"} %></li>
+				<li><%= link_to "Route", {:controller => "demo", :action => "contact"}, 'data-no-turbolink' => true %></li>
 			</ul>
 		</nav>
 		<!-- end navigation menu -->
