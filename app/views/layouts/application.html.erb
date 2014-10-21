@@ -13,7 +13,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 <%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "application" %>
+
+<% if params[:action] == "contact" %>
+<%= javascript_include_tag "main" %>
+<%= javascript_include_tag "map" %>
+<% end %>
+
 </head>
 
 <body>

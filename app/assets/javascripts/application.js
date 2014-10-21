@@ -13,9 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.loupe
-//= require Chart
-//= require main
-//= require map
+
 
 
