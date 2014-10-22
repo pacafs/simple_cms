@@ -212,23 +212,23 @@ jQuery(function($){
 	}
 
 
-	function handler1(e) {
-        e.preventDefault();
-        // function 1 here ...
-        $.getloc(false);
-        // $(this).one("click", handler2);
-    }
+	// function handler1(e) {
+ //        e.preventDefault();
+ //        // function 1 here ...
+ //        $.getloc(false);
+ //        // $(this).one("click", handler2);
+ //    }
     
-    function handler2(e) {
-        e.preventDefault();
-        // function 2 here ...
-        $.getloc(true);
-        // $(this).one("click", handler1);
-    }
+ //    function handler2(e) {
+ //        e.preventDefault();
+ //        // function 2 here ...
+ //        $.getloc(true);
+ //        // $(this).one("click", handler1);
+ //    }
 
-    $("#fb").on("click", handler2);
+ //    $("#fb").on("click", handler2);
 
-    $("#go").on("click", handler1);
+ //    $("#go").on("click", handler1);
 
 	google.maps.event.addDomListener(window, 'load', $.getloc(true));
 
