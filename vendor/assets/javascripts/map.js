@@ -20,10 +20,12 @@ jQuery(function($){
 	var latitude;
 	var canvas = "map";
 	var myLatlng;
+	
 
-	var content1 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
+	var content1 = "<div class='my_marker' style='overflow: scroll; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
 				 + "<div><img src='http://www.oocities.org/unlklavier/Paul-performing.jpg' alt='Smiley face' height='80' width='80'></div>"
 				 + "<h1>Piano Concerto</h1>"
+				 + "<p>Hello Friend!</p>"
 				 + "</div>";
 
 	var content2 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
@@ -210,7 +212,6 @@ jQuery(function($){
 	  });
 	
 	}
-
 
 	function handler1(e) {
         e.preventDefault();
