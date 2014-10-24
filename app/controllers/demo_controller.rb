@@ -33,4 +33,8 @@ class DemoController < ApplicationController
   def contact
   end
 
+  def text_helpers
+  end
+
+
 end
