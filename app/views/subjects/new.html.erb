@@ -2,28 +2,13 @@
 
 <%= form_for(:subject, :url =>{:action => "create"}, html: { multipart: true }) do |f| %>
 
-<table style="text-align:center;">
-<tr>
-  <th>Name</th>
-  <td><%= f.text_field(:name) %></td>
-</tr> 
-<tr> 
-  <th>Position</th>
-  <td><%= f.text_field(:position) %></td>
-</tr>
-<tr>
-  <th>Visible</th>
-  <td><%= f.text_field(:visible) %></td>
-</tr>
-<tr>
-  <th>Image</th>
-  <td><%= f.file_field(:image) %></td>
-</tr>
-<tr><td colspan="2"><%= submit_tag("Submit") %></td></tr>
-</table>
+<%= render(:partial => 'form', :locals => {:a => f}) %>
+
+<div><%= submit_tag('Create Subject') %></div>
 
 <% end %>
 
 <br />
 
 <%= link_to({:action => "index"},  class: "btn_link") do %><button>Back</button><% end %>
+

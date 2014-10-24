@@ -1,8 +1,9 @@
 <h1>Pages#new</h1>
 
 <%= form_for(@page, url: {action: "create"}) do |p| %>
-  <%= p.text_field :name %>
-  <%= p.check_box :visible %>
-  <%= p.submit "Create" %>
-<% end %>
+  
+  <%= render(:partial => "form", :locals => {:a => p})%>
 
+  <div><%= submit_tag('Update Page') %></div>
+
+<% end %>

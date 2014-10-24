@@ -2,11 +2,9 @@
 
 <%= form_for(:subject, :url =>{:action => "update", html: { multipart: true }, :id => @subject.id}) do |f| %>
 
-	  <%= f.text_field(:name) %>
-	  <%= f.text_field(:position) %>
-	  <%= f.text_field(:visible) %>
-	  <%= f.file_field(:image) %>
-	  <%= submit_tag("Submit") %>
+	  <%= render(:partial => 'form', :locals => {:a => f}) %>
+
+	  <div><%= submit_tag('Create Subject') %></div>
 
 <% end %>
 

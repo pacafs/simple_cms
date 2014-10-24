@@ -1,26 +1,27 @@
 <h1><%= @subject.name %></h1>
 
-
-<table style="text-align:center;">
-<tr>
-  <th>Picture</th>
-  <th>Name</th>
-  <th>Position</th> 
-  <th>Visible</th>
-  <th>Pages</th>
-  <th>Created At</th>
-  <th>Updated At</th>
-</tr>
-<tr>
-  <td><%= link_to @subject.image.url(:large), class: "test" do %><%= image_tag @subject.image.url(:medium) %><% end %></td>
-  <td><%=  @subject.name %></td>
-  <td><%=  @subject.position %></td>		
-  <td><%=  @subject.visible ? "Yes" : "No" %></td>
-  <td><%=  @subject.pages.size %></td>
-  <td><%=  @subject.created_at %></td>
-  <td><%=  @subject.updated_at %></td>
-</tr>
-</table>
+<div class="CSSTableGenerator" >
+  <table >
+    <tr>
+      <td>Picture</td>
+      <td>Name</td>
+      <td>Position</td> 
+      <td>Visible</td>
+      <td>Pages</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+    </tr>
+    <tr>
+      <td><%= link_to @subject.image.url(:large), class: "test" do %><%= image_tag @subject.image.url(:medium) %><% end %></td>
+      <td><%=  @subject.name %></td>
+      <td><%=  @subject.position %></td>    
+      <td><%=  @subject.visible ? "Yes" : "No" %></td>
+      <td><%=  @subject.pages.size %></td>
+      <td><%=  @subject.created_at %></td>
+      <td><%=  @subject.updated_at %></td>
+    </tr>
+  </table>
+</div>
 
 <div>
   <h2>Pages</h2>
