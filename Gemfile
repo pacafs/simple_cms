@@ -34,16 +34,15 @@ end
 
 # Paperclip
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 # Assets
 gem 'rails_12factor', group: :production
+
 # AmazonWebServices
 gem 'aws-sdk'
-# New Relic
-gem 'newrelic_rpm'
-
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
