@@ -243,7 +243,6 @@ jQuery(function($){
 	
 	}
 
-	
 	// Fire action //
 	google.maps.event.addDomListener(window, 'load', $.getloc());
 	// Fire Action //

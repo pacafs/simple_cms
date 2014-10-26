@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823010458) do
+ActiveRecord::Schema.define(version: 20141026183231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,23 @@ ActiveRecord::Schema.define(version: 20140823010458) do
 
   add_index "admin_users_pages", ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id", using: :btree
 
+  create_table "markers", force: true do |t|
+    t.string   "name",                      limit: 25
+    t.string   "string",                    limit: 25
+    t.string   "description"
+    t.float    "lat"
+    t.float    "lang"
+    t.text     "content"
+    t.string   "marker_image_file_name"
+    t.string   "marker_image_content_type"
+    t.integer  "marker_image_file_size"
+    t.datetime "marker_image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "markers", ["name"], name: "index_markers_on_name", using: :btree
+
   create_table "pages", force: true do |t|
     t.integer  "subject_id"
     t.string   "name"
@@ -48,6 +65,20 @@ ActiveRecord::Schema.define(version: 20140823010458) do
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
   add_index "pages", ["subject_id"], name: "index_pages_on_subject_id", using: :btree
+
+  create_table "routes", force: true do |t|
+    t.string   "name",        limit: 25
+    t.string   "string",      limit: 25
+    t.string   "description"
+    t.float    "start_lat"
+    t.float    "start_lang"
+    t.float    "end_lat"
+    t.float    "end_lang"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "routes", ["name"], name: "index_routes_on_name", using: :btree
 
   create_table "section_edits", force: true do |t|
     t.integer  "admin_user_id"
@@ -83,5 +114,20 @@ ActiveRecord::Schema.define(version: 20140823010458) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "username",                   limit: 25
+    t.string   "string",                     limit: 25
+    t.string   "email",                                 default: "", null: false
+    t.string   "password_digest",            limit: 40
+    t.string   "profile_image_file_name"
+    t.string   "profile_image_content_type"
+    t.integer  "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end

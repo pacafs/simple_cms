@@ -5,8 +5,8 @@ class AlterUsers < ActiveRecord::Migration
   	add_column("admin_users", "username", :string, :limit => 25, :after => "email")
   	change_column("admin_users","email", :string, :limit => 100)
   	rename_column("admin_users","password","hashed_password")
-  	puts "Adding Index!"
   	add_index("admin_users", "username")
+    puts "Adding Index!"
   end
 
   def down
