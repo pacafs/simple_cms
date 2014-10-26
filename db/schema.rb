@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141026183231) do
+ActiveRecord::Schema.define(version: 20141026231758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 20141026183231) do
   end
 
   add_index "markers", ["name"], name: "index_markers_on_name", using: :btree
+
+  create_table "markers_routes", id: false, force: true do |t|
+    t.integer "marker_id"
+    t.integer "route_id"
+  end
+
+  add_index "markers_routes", ["marker_id", "route_id"], name: "index_markers_routes_on_marker_id_and_route_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.integer  "subject_id"
@@ -114,6 +121,15 @@ ActiveRecord::Schema.define(version: 20141026183231) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "user_routes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "route_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_routes", ["user_id", "route_id"], name: "index_user_routes_on_user_id_and_route_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                   limit: 25

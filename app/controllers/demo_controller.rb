@@ -10,7 +10,7 @@ class DemoController < ApplicationController
   	# render('hello')
     
     @subject = Subject.all
-
+    
   end
   
   def hello
