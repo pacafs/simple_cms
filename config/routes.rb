@@ -2,7 +2,8 @@ SimpleCms::Application.routes.draw do
   
 root "demo#index"  
 
-get 'contact' => 'demo#contact'
+#Manual Routing
+#get 'contact' => 'demo#contact'
 
   #get "demo/index"
   

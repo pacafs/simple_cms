@@ -1,6 +1,7 @@
 class DemoController < ApplicationController
     
   #layout false
+  
 
   def index	
     
@@ -13,7 +14,7 @@ class DemoController < ApplicationController
   end
   
   def hello
-  	
+    
   	@array = [1,2,3,4,5]
   	@id = params['id']
   	@page = params[:page]

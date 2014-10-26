@@ -1,55 +1,55 @@
 jQuery(function($){
 
-	var a = "assets/piano6.png";
-	var b = "assets/fork28.png";
-	var c = "assets/cocktail22.png";
-	var d = "assets/mirrors.png";
-
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
-	
+
+	var a = "/assets/piano6.png";
+	var b = "/assets/fork28.png";
+	var c = "/assets/cocktail22.png";
+	var d = "/assets/mirrors.png";
+
 	var start  = new google.maps.LatLng(41.177293, -8.657569);
 	var end    = new google.maps.LatLng(41.17984,  -8.6536);
 	var waipt1 = new google.maps.LatLng(41.180813, -8.65687);
 	var waipt2 = new google.maps.LatLng(41.179756, -8.656553);
 
-	// var test for the arguments on getLocation()
-	var test;
-
 	var longitude;
 	var latitude;
 	var canvas = "map";
 	var myLatlng;
-	
 
-	var content1 = "<div class='my_marker' style='overflow: scroll; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
+	// 	Options buttons variables //
+	var markers = true;
+	var way = google.maps.TravelMode.DRIVING;
+	// 	Options buttons variables //
+
+	var content1 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
 				 + "<div><img src='http://www.oocities.org/unlklavier/Paul-performing.jpg' alt='Smiley face' height='80' width='80'></div>"
 				 + "<h1>Piano Concerto</h1>"
 				 + "<p>Hello Friend!</p>"
 				 + "</div>";
 
-	var content2 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+	var content2 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
 				 + "<div><img src='http://tm222.dd14.firma5.com/wp-content/uploads/Bild11.jpg' alt='Smiley face' height='80' width='80'></div>"
 				 + "<h1>Restaurant</h1>"
 				 + "</div>";
 
-    var content3 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+    var content3 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
 				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='80' width='80'></div>"
 				 + "<h1>NightClub</h1>"
 				 + "</div>";
 
-    var content4 = "<div class='my_marker' style='overflow: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
+    var content4 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
 				 + "<div><img src='http://www.sanfranciscosentinel.com/wp-content/uploads/2008/04/barleycorn-1.jpg' alt='Smiley face' height='80' width='80'></div>"
 				 + "<h1>Classic Pub</h1>"
 				 + "</div>";
 
-	jQuery.getloc = function getLocation(test_me) {
+	jQuery.getloc = function getLocation() {
 		
 		$(".main").empty().html('<div class="spinner"><div class="dot1"></div><div class="dot2"></div></div>');
 
 	    if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
-	        test = test_me;
 	    } else {
 	    	alert("Can´t get your Location");
 	    }
@@ -61,15 +61,15 @@ jQuery(function($){
 	    longitude  = position.coords.latitude;
 	    latitude   = position.coords.longitude; 
 	    
-	    randing_map(canvas, longitude, latitude, test);
+	    randing_map(canvas, longitude, latitude, markers);
 
 	}
 	
-	function randing_map(canvas, lan, lat, check_me){			
+	function randing_map(canvas, lan, lat, markers){			
 
 			myLatlng = new google.maps.LatLng(41.177293, -8.657569); //new google.maps.LatLng(lan,lat);
 
-			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: check_me});
+			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: markers}); //
 			
 			var myOptions = {
 						zoom: 17,
@@ -85,8 +85,8 @@ jQuery(function($){
 			var marker = new google.maps.Marker({
 			    position : start,
 			    map      : map,
-			    icon     : "assets/point.png"
-			});
+			    icon     : "/assets/point.png"
+			});	
 			// Map Marker 1
 			var marker1 = new google.maps.Marker({
 			    position : start,
@@ -115,11 +115,7 @@ jQuery(function($){
 			    icon     : d
 			});
 
-			if(check_me == true){
-			
-				// pass this if statement
-			
-			} else {
+			if(markers == false){
 				marker1.setVisible(false);
 				marker2.setVisible(false);
 				marker3.setVisible(false);
@@ -151,10 +147,13 @@ jQuery(function($){
 
 			map.setOptions({styles: styles});
 
+			
 			// InfoWindows Custom Content //			
 			var infowindow = new google.maps.InfoWindow({
 				content: content1
 			});
+
+
 			// Marker clicks Events //	
 			google.maps.event.addListener(marker1, 'click', function() {
 			  infowindow.setContent(content1);
@@ -173,6 +172,38 @@ jQuery(function($){
 			  infowindow.open(map,marker4);
 			});	
 
+		    $("#fb").on('click', function(){
+		    	marker1.setVisible(false);
+				marker2.setVisible(false);
+				marker3.setVisible(false);
+				marker4.setVisible(false);
+				directionsDisplay.suppressMarkers = false;
+				calcRoute();
+			    directionsDisplay.setMap(map);
+		    });
+
+		    $("#go").on('click', function(){
+		    	marker1.setVisible(true);
+				marker2.setVisible(true);
+				marker3.setVisible(true);
+				marker4.setVisible(true);
+				directionsDisplay.suppressMarkers = true;
+				calcRoute();
+			    directionsDisplay.setMap(map);
+		    });
+
+		    $("#be").on('click', function(){
+		    	way = google.maps.TravelMode.WALKING;
+				calcRoute();
+			    directionsDisplay.setMap(map);
+		    });
+
+		    $("#rss").on('click', function(){
+		    	way = google.maps.TravelMode.DRIVING;
+				calcRoute();
+			    directionsDisplay.setMap(map);
+		    });
+
 			// Click on the map to remove Infowindows
 			google.maps.event.addListener(map, 'click', function() {
 			    infowindow.close();
@@ -184,10 +215,9 @@ jQuery(function($){
 			    map.setCenter(myLatlng);
 			});
 
-			//Call directions function
+			//Call directions function and write the blue line//
 			calcRoute();
 			directionsDisplay.setMap(map);
-
 	}
 
 	function calcRoute() {
@@ -199,7 +229,7 @@ jQuery(function($){
 	      destination: end,
 	      waypoints: waypts,
 	      optimizeWaypoints: true,
-	      travelMode: google.maps.TravelMode.DRIVING
+	      travelMode: way
 	  };
 
 	  directionsService.route(request, function(response, status) {
@@ -213,24 +243,9 @@ jQuery(function($){
 	
 	}
 
-	function handler1(e) {
-        e.preventDefault();
-        // function 1 here ...
-        $.getloc(false);
-        // $(this).one("click", handler2);
-    }
-    
-    function handler2(e) {
-        e.preventDefault();
-        // function 2 here ...
-        $.getloc(true);
-        // $(this).one("click", handler1);
-    }
-
-    $("#fb").on("click", handler2);
-
-    $("#go").on("click", handler1);
-
-	google.maps.event.addDomListener(window, 'load', $.getloc(true));
+	
+	// Fire action //
+	google.maps.event.addDomListener(window, 'load', $.getloc());
+	// Fire Action //
 
 });	
