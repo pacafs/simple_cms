@@ -207,7 +207,7 @@ jQuery(function($){
 			// Zoom change Event
 			google.maps.event.addListener(map, 'zoom_changed', function() {
 			    var zoomLevel = map.getZoom();
-			    map.setCenter(myLatlng);
+			    map.setCenter(start);
 			});
 
 			//Call directions function and write the blue line//
