@@ -10,7 +10,7 @@ class DemoController < ApplicationController
   	# render('hello')
     
     @subject = Subject.all
-    
+
   end
   
   def hello
@@ -32,6 +32,12 @@ class DemoController < ApplicationController
   end
 
   def contact
+    # You could search with more ease -> Route.first.star_lat ...
+    @start_lat = Route.find(User.first.user_routes.first.route_id).start_lat
+    @end_lat = Route.find(User.first.user_routes.first.route_id).end_lat
+    @start_lang = Route.find(User.first.user_routes.first.route_id).start_lang
+    @end_lang = Route.find(User.first.user_routes.first.route_id).end_lang
+  
   end
 
   def text_helpers

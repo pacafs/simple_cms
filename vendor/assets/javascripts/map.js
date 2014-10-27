@@ -8,11 +8,6 @@ jQuery(function($){
 	var c = "/assets/cocktail22.png";
 	var d = "/assets/mirrors.png";
 
-	var start  = new google.maps.LatLng(41.177293, -8.657569);
-	var end    = new google.maps.LatLng(41.17984,  -8.6536);
-	var waipt1 = new google.maps.LatLng(41.180813, -8.65687);
-	var waipt2 = new google.maps.LatLng(41.179756, -8.656553);
-
 	var longitude;
 	var latitude;
 	var canvas = "map";
@@ -67,7 +62,7 @@ jQuery(function($){
 	
 	function randing_map(canvas, lan, lat, markers){			
 
-			myLatlng = new google.maps.LatLng(41.177293, -8.657569); //new google.maps.LatLng(lan,lat);
+			myLatlng = new google.maps.LatLng(lan,lat); //new google.maps.LatLng(lan,lat);
 
 			directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: markers}); //
 			
@@ -83,7 +78,7 @@ jQuery(function($){
 			
 			// My Position
 			var marker = new google.maps.Marker({
-			    position : start,
+			    position : myLatlng,
 			    map      : map,
 			    icon     : "/assets/point.png"
 			});	
