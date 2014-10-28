@@ -1,7 +1,6 @@
 class DemoController < ApplicationController
     
   #layout false
-  
 
   def index	
     
@@ -9,9 +8,21 @@ class DemoController < ApplicationController
     # render('demo/hello')
   	# render('hello')
     
-    @subject = Subject.all
+    @route = Route.all.last
+
+    respond_to do |format|
+      format.html { render html: @route }
+      format.xml { render xml: @route }
+      format.json { render json: @route }
+    end
 
   end
+
+  def index_json
+    @route = Route.all.first
+    render json: @route
+  end
+
   
   def hello
     
@@ -37,7 +48,9 @@ class DemoController < ApplicationController
     @end_lat = Route.find(User.first.user_routes.first.route_id).end_lat
     @start_lang = Route.find(User.first.user_routes.first.route_id).start_lang
     @end_lang = Route.find(User.first.user_routes.first.route_id).end_lang
-  
+    
+    @route = Route.all.last
+    
   end
 
   def text_helpers

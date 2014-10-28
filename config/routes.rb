@@ -3,9 +3,7 @@ SimpleCms::Application.routes.draw do
 root "demo#index"  
 
 #Manual Routing
-#get 'contact' => 'demo#contact'
-
-  #get "demo/index"
+get 'index_json' => 'demo#index_json'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

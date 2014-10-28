@@ -18,26 +18,6 @@ jQuery(function($){
 	var way = google.maps.TravelMode.DRIVING;
 	// 	Options buttons variables //
 
-	var content1 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 170px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://www.oocities.org/unlklavier/Paul-performing.jpg' alt='Smiley face' height='80' width='80'></div>"
-				 + "<h1>Piano Concerto</h1>"
-				 + "<p>Hello Friend!</p>"
-				 + "</div>";
-
-	var content2 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://tm222.dd14.firma5.com/wp-content/uploads/Bild11.jpg' alt='Smiley face' height='80' width='80'></div>"
-				 + "<h1>Restaurant</h1>"
-				 + "</div>";
-
-    var content3 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='80' width='80'></div>"
-				 + "<h1>NightClub</h1>"
-				 + "</div>";
-
-    var content4 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'>"
-				 + "<div><img src='http://www.sanfranciscosentinel.com/wp-content/uploads/2008/04/barleycorn-1.jpg' alt='Smiley face' height='80' width='80'></div>"
-				 + "<h1>Classic Pub</h1>"
-				 + "</div>";
 
 	jQuery.getloc = function getLocation() {
 		
@@ -243,3 +223,7 @@ jQuery(function($){
 	// Fire Action //
 
 });	
+
+
+
+
