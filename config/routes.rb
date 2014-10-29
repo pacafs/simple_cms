@@ -1,9 +1,15 @@
 SimpleCms::Application.routes.draw do
-  
+
+get 'words/crazy' => 'words#crazy'
+
+resources :words
+
+#get 'words/crazy', :to => 'words#crazy'
+
 root "demo#index"  
 
 #Manual Routing
-get 'index_json' => 'demo#index_json'
+#get 'crazy' => 'words#crazy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

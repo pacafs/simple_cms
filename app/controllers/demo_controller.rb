@@ -8,13 +8,13 @@ class DemoController < ApplicationController
     # render('demo/hello')
   	# render('hello')
     
-    @route = Route.all.first.name
+    @route = Route.all.first
 
-    # respond_to do |format|
-    #   format.html { render html: @route }
-    #   format.xml { render xml: @route }
-    #   format.json { render json: @route }
-    # end
+    respond_to do |format|
+      format.html { render html: @route }
+      format.xml  { render xml: @route }
+      format.json { render json: @route }
+    end
 
   end
 
