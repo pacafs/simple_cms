@@ -44,12 +44,17 @@ class DemoController < ApplicationController
 
   def contact
     # You could search with more ease -> Route.first.star_lat ...
-    @start_lat = Route.find(User.first.user_routes.first.route_id).start_lat
-    @end_lat = Route.find(User.first.user_routes.first.route_id).end_lat
-    @start_lang = Route.find(User.first.user_routes.first.route_id).start_lang
-    @end_lang = Route.find(User.first.user_routes.first.route_id).end_lang
+    # @start_lat = Route.find(User.first.user_routes.first.route_id).start_lat
+    # @end_lat = Route.find(User.first.user_routes.first.route_id).end_lat
+    # @start_lang = Route.find(User.first.user_routes.first.route_id).start_lang
+    # @end_lang = Route.find(User.first.user_routes.first.route_id).end_lang
     
-    @route = Route.all.last
+    @start_lat = Route.find(1).start_lat
+    @end_lat = Route.find(1).end_lat
+    @start_lang = Route.find(1).start_lang
+    @end_lang = Route.find(1).end_lang
+
+    @route = Route.all.first
     
   end
 

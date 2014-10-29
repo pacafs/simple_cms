@@ -1,5 +1,6 @@
 SimpleCms::Application.routes.draw do
 
+# Exception to the words Resources!
 get 'words/crazy' => 'words#crazy'
 
 resources :words
