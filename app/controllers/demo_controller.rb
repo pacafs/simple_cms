@@ -56,10 +56,15 @@ class DemoController < ApplicationController
 
     @route = Route.all.first
     
+    respond_to do |format|
+      format.html {render html: @route }
+      format.xml  {render xml:  @route }
+      format.json {render json: @route }
+    end
+
   end
 
   def text_helpers
   end
-
 
 end
