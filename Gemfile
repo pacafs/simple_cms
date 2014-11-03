@@ -42,7 +42,7 @@ gem 'rails_12factor', group: :production
 gem 'aws-sdk'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.5'
 
 # Use unicorn as the app server
 # gem 'unicorn'

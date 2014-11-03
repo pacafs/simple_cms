@@ -1,18 +1,18 @@
 <table style="text-align:center;">
 <tr>
-  <th>Name</th>
+  <th><%= a.label(:name) %></th>
   <td><%= a.text_field(:name) %></td>
 </tr> 
 <tr> 
-  <th>Position</th>
+  <th><%= a.label(:position) %></th>
   <td><%= a.text_field(:position) %></td>
 </tr>
 <tr>
-  <th>Visible</th>
-  <td><%= a.text_field(:visible) %></td>
+  <th><%= a.label(:visible) %></th>
+  <td><%= a.check_box(:visible) %></td>
 </tr>
 <tr>
-  <th>Image</th>
+  <th><%= a.label(:image) %></th>
   <td><%= a.file_field(:image) %></td>
 </tr>
 </table>

@@ -1,0 +1,19 @@
+<h1>Access#login</h1>
+<p>Find me in app/views/access/login.html.erb</p>
+
+<%= form_tag(:action => "attempt_login") do %>
+
+<table style="text-align:center;">
+<tr>
+  <th><%= label_tag(:username) %></th>
+  <td><%= text_field_tag(:username) %></td>
+</tr> 
+<tr> 
+  <th><%= label_tag(:password) %></th>
+  <td><%= password_field_tag(:password) %></td>
+</tr>
+</table>
+
+<div><%= submit_tag('Log In') %></div>
+
+<% end %>

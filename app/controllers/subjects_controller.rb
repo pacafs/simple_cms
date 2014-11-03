@@ -1,7 +1,9 @@
 class SubjectsController < ApplicationController
   # layout false
-
-  def index
+  #skip_before_filter :verify_authenticity_token
+  before_action :confirmed_logged_in
+  
+  def index 
     @subjects  = Subject.sorted
   end
 
@@ -14,17 +16,31 @@ class SubjectsController < ApplicationController
     @subject = Subject.new(subject_params)
 
     if @subject.save
+
+      respond_to do |format|
+        format.html { redirect_to(:action => 'index') }
+        format.json { render :json => @subject }
+      end
+
       flash[:notice] = "SUBJECT CREATED"
-      redirect_to(:action => 'index')
+      #redirect_to(:action => 'index')
+    
     else
+      
       render('new')
       flash[:notice] = "ERROR"
+    
     end
 
   end
 
   def show
   	@subject = Subject.find(params[:id])
+
+    respond_to do |format|
+        format.html { render :show }
+        format.json { render :json => @subject }
+      end
   end
 
   def edit
@@ -38,7 +54,12 @@ class SubjectsController < ApplicationController
 
     if @subject.update_attributes(subject_params)
       flash[:notice] = "SUBJECT UPDATED"
-      redirect_to(:action => 'show', :id => @subject.id)
+
+      respond_to do |format|
+        format.html { redirect_to(:action => 'index') }
+        format.json {render :json => @subject }
+      end
+      #redirect_to(:action => 'show', :id => @subject.id)
     else
       flash[:notice] = "ERROR"
       render('index')
@@ -52,7 +73,12 @@ class SubjectsController < ApplicationController
 
   def destroy
     subject = Subject.find(params[:id]).destroy
-    redirect_to(:action => 'index')
+    
+    respond_to do |format|
+      format.html { redirect_to(:action => 'index') }
+      format.json { render :json => subject }
+    end
+    #redirect_to(:action => 'index')
     flash[:notice] = "SUBJECT DELETED"
   end
 

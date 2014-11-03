@@ -11,7 +11,7 @@
     <div class="panel panel-success box">
     
 	    <div class="panel-body">
-			<%= link_to s.image.url(:large), class: "test" do %><%= image_tag s.image.url(:medium) %><% end %>
+			<%= link_to s.image.url(:medium), class: "test" do %><%= image_tag s.image.url(:medium) %><% end %>
 		</div>	
 		
 		<div class="panel-footer">    
@@ -19,9 +19,11 @@
 		</div>
 
 	</div>
-
+	
 <% end %>
 
 <%= link_to({:action => "new"},  class: "btn_link") do %><button>New Subject</button><% end %>
 
 <% @page_title = "MapSticker | Subjects" %>
+
+

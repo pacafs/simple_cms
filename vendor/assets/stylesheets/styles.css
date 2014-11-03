@@ -81,6 +81,18 @@
     filter: blur(4px);
 }
 
+.section_content_wrapper {
+  border: 1px solid yellow;
+}   
+
+.section_content_type {
+  color: green;
+}
+
+.section_content {
+ color: blue;
+}
+
 
 .CSSTableGenerator {
   margin:0px;padding:0px;

@@ -1,13 +1,9 @@
 <h1>Sections#new</h1>
 
-<%= form_for(@section, url: {action: "create"}) do |s| %>
-  <p>Name:</p>
-  <%= s.text_field :name %>
-  <p>Visible:</p>
-  <%= s.check_box :visible %>
-  <p>Content_type:</p>
-  <%= s.text_field :content_type %>
-  <p>Content:</p>
-  <%= s.text_field :content %>
-  <%= s.submit "Create" %>
+<%= form_for(@section, url: {action: "create"}) do |sec| %>
+
+	<%= render(:partial => "form", :locals => {:sec => sec})%>
+
+	<div><%= submit_tag('Create Section') %></div>
+
 <% end %>

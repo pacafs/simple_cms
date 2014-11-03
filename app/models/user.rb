@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
 	# To configure a different table
 	# self.table_name = "admin_users"
+	has_secure_password
+	
 	has_many :user_routes
 	
 	has_attached_file :profile_image, :styles => { :medium => "300x300>", :thumb => "64x64", :large => "500x500" }

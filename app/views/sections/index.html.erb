@@ -4,10 +4,22 @@
     <li><%= link_to "Pages", {:controller => "pages", :action => "index"} %></li>
     <li><%= link_to "Sections", {:controller => "sections", :action => "index"} %></li>
 </ul>
+ 
+<br/>
+<br/>
 
 <% @sections.each do |s| %> 
-	<%= link_to({:action => "show", :id => s.id}) do %><p><%= s.name %></p><% end %>
-	<p><%= s.content_type %></p>
+	<%= link_to({:action => "show", :id => s.id}) do %>
+	<p><%= s.name %></p>
+	<br/>
+	<% end %>
+	<div class="section_content_wrapper">
+		<p class="section_content_type"><%= s.content_type %></p>
+		<p class="section_content"><%= s.content %></p>
+	</div>
 <% end %>	
 
+<br/>
+
 <%= link_to({:action => "new"},  class: "btn_link") do %><button>New Section</button><% end %>
+

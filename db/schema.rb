@@ -135,7 +135,7 @@ ActiveRecord::Schema.define(version: 20141029030528) do
     t.string   "username",                   limit: 25
     t.string   "string",                     limit: 25
     t.string   "email",                                 default: "", null: false
-    t.string   "password_digest",            limit: 40
+    t.string   "password_digest"
     t.string   "profile_image_file_name"
     t.string   "profile_image_content_type"
     t.integer  "profile_image_file_size"

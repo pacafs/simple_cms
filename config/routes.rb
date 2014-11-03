@@ -1,17 +1,29 @@
 SimpleCms::Application.routes.draw do
-
-# Exception to the words Resources!
-get 'words/crazy' => 'words#crazy'
-
-resources :words
-
-#get 'words/crazy', :to => 'words#crazy'
-
-root "demo#index"  
-
-#Manual Routing
-#get 'crazy' => 'words#crazy'
   
+root "demo#index" 
+
+# get "access/index"
+# get "access/login"
+
+get "admin", :to => "access#index"
+
+resources :words do
+  collection do
+    get 'crazy'
+  end
+end
+
+
+post 'subjects/create' => 'subjects#create'
+put 'subjects/update' => 'subjects#update'
+delete 'subjects/destroy' => 'subjects#destroy'
+
+# The same as having: get 'words/crazy' => 'words#crazy'
+
+# get 'words/crazy', :to => 'words#crazy'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -70,3 +82,4 @@ root "demo#index"
   match ':controller(/:action(/:id))', :via => [:get, :post]
   
 end
+
