@@ -43,6 +43,7 @@ class DemoController < ApplicationController
   end
 
   def contact
+
     # You could search with more ease -> Route.first.star_lat ...
     # @start_lat = Route.find(User.first.user_routes.first.route_id).start_lat
     # @end_lat = Route.find(User.first.user_routes.first.route_id).end_lat
@@ -57,7 +58,7 @@ class DemoController < ApplicationController
     @route = Route.all.first
     
     respond_to do |format|
-      format.html {render html: @route }
+      format.html {render html: @route, :layout => false }
       format.xml  {render xml:  @route }
       format.json {render json: @route }
     end

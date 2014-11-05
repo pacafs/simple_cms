@@ -1,43 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title><%= @page_title || 'MapSticker' %></title>
+<!-- JQUERY -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<%= stylesheet_link_tag "application" %>
+
+<% if params[:action] == "contact" %>
+<%= javascript_include_tag "main" %>
+<%= javascript_include_tag "map" %>
+<% end %>
+
+</head>
+
+<body>
 <header>
-		<div class="logo">
-			<a href="index.html"><h1>MapSticker</h1></a>
-		</div><!-- end logo -->
-		
-		<div id="menu_icon"></div>
-		<nav>
-			<ul>
-				<li><%= link_to "Home", {:controller => "demo", :action => "index"} %></li>
-				<li><a href="javascript:void(0)">About</a></li>
-				<li><a href="javascript:void(0)">The Team</a></li>
-				<li><%= link_to "Route", {:controller => "demo", :action => "contact"}, 'data-no-turbolink' => true %></li>
-			</ul>
-		</nav>
+		<center><h1>Mapsticker</h1></center>
+		<ul class="links_ul">
+			<li><%= link_to "Home", {:controller => "demo", :action => "index"} %></li>
+			<li><a href="javascript:void(0)">About</a></li>
+			<li><a href="javascript:void(0)">The Team</a></li>
+			<li><%= link_to "Route", {:controller => "demo", :action => "contact"}, 'data-no-turbolink' => true %></li>
+		</ul>
 		<!-- end navigation menu -->
 
 		<div class="footer clearfix">
-			<ul class="social clearfix">
-				<li><a href="#" class="fb" id="fb" data-title="Facebook"></a></li>
-				<li><a href="#" class="google" id="go" data-title="Google +"></a></li>
-				<li><a href="#" class="behance" id="be" data-title="Behance"></a></li>
-				<!--<li><a href="#" class="twitter" data-title="Twitter"></a></li>
-				<li><a href="#" class="dribble" data-title="Dribble"></a></li>-->
-				<li><a href="#" class="rss" id="rss" data-title="RSS"></a></li>
-			</ul><!-- end social -->
+		
+			<div id="directions-panel"></div>
 
-			<div class="rights">
-				<p>Copyright © 2014 magnetic.</p>
-				<p>Template by <a href="">Pixelhint.com</a></p>
-			</div><!-- end rights -->
-		</div ><!-- end footer -->
+		</div><!-- end footer -->
 
 </header><!-- end header -->
-
+		
 <!-- Map -->
-
-	<!-- <div class="blur"></div> -->
 
 	<section class="main" id="map"></section>
 
+	<div id="top">
+		<div class="inner_top">
+			<div class="btn-group">
+			  <button type="button" class="btn btn-info" id="fb">Markers</button>
+			  <button type="button" class="btn btn-info" id="go">Venues</button>
+			  <button type="button" class="btn btn-success" id="be">Walking</button>
+			  <button type="button" class="btn btn-success" id="rss">Driving</button>
+			</div>
+		</div>
+	</div>
 <!-- end main/map -->
 
 <script type="text/javascript">
@@ -53,4 +69,6 @@
     var content4 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'><div><img src='http://www.sanfranciscosentinel.com/wp-content/uploads/2008/04/barleycorn-1.jpg' alt='Smiley face' height='80' width='80'></div><h1>Classic Pub</h1></div>"
 
 
-</script>	
+</script>
+</body>
+</html>

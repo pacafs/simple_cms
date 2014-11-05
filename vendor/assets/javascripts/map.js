@@ -49,19 +49,19 @@ jQuery(function($){
 			var myOptions = {
 				zoom: 17,
 				center: myLatlng,
-				mapTypeId: google.maps.MapTypeId.TERRAIN,
-				maxZoom   : 20,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				maxZoom: 20,
 				disableDefaultUI: true,
 				panControl: true,
 			    zoomControl: true,
-			    scaleControl: true,
-				mapTypeControl: true,
-				streetViewControl: true,
+			    scaleControl: false,
+				mapTypeControl: false,
+				streetViewControl: false,
 				overviewMapControl: true
 			}
 
 			var map = new google.maps.Map( document.getElementById(canvas), myOptions );
-			
+
 			// My Position
 			var marker = new google.maps.Marker({
 			    position : myLatlng,
@@ -105,52 +105,28 @@ jQuery(function($){
 
 			// Map Styles
 
-			// var styles = [
-			//   {
-			//     featureType: "all",
-			//     stylers: [
-			//       { saturation: -80 }
-			//     ]
-			//   },{
-			//     featureType: "road.arterial",
-			//     elementType: "geometry",
-			//     stylers: [
-			//       { hue: "#00ffee" },
-			//       { saturation: 50 }
-			//     ]
-			//   },{
-			//     featureType: "poi.business",
-			//     elementType: "labels",
-			//     stylers: [
-			//       { visibility: "off" }
-			//     ]
-			//   }
-			// ];
-
 			var styles = [
-    		
-	    	  {
+			  {
 			    featureType: "all",
-				    stylers: [
-				      { saturation: -80 }
-				    ]
-			    },
-			  	{
-			      stylers: [
-			        { hue: "#4965A0" },
-			        { saturation: 50 }
-			      ]
-			    },
-			    {
-			      featureType: "road",
-			      elementType: "geometry",
-			      stylers: [
-			        { lightness: 50 },
-			        { visibility: "simplified" }
-			      ]
-			    }
-		  	];
-
+			    stylers: [
+			      { saturation: 20 },
+			      { hue: "#4EBADB" }
+			    ]
+			  },{
+			    featureType: "road.arterial",
+			    elementType: "geometry",
+			    stylers: [
+			      { hue: "#00ffee" },
+			      { saturation: -50 }
+			    ]
+			  },{
+			    featureType: "poi.business",
+			    elementType: "labels",
+			    stylers: [
+			      { visibility: "off" }
+			    ]
+			  }
+			];
 
 			map.setOptions({styles: styles});
 
@@ -225,6 +201,7 @@ jQuery(function($){
 			//Call directions function and write the blue line//
 			calcRoute();
 			directionsDisplay.setMap(map);
+			directionsDisplay.setPanel(document.getElementById('directions-panel'));
 	}
 
 	function calcRoute() {
