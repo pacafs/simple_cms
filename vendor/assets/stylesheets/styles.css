@@ -97,19 +97,17 @@
 
 
 
-#directions-panel{
+#directions-panel {
   height: 500px;
   width: 300px;
-  /*overflow-y: scroll;
-  */
+  overflow-y: scroll;
   overflow-x: hidden;
-  overflow: auto;
   display: block;
 }
 
 .links_ul li {
   display: inline;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 #top {
