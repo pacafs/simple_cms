@@ -6,6 +6,8 @@ root "demo#index"
 # get "access/login"
 
 get "admin", :to => "access#index"
+post 'access/attempt_login', :to => 'access#attempt_login'
+
 
 resources :words do
   collection do

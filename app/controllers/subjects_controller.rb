@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
   # layout false
-  #skip_before_filter :verify_authenticity_token
-  before_action :confirmed_logged_in
+  skip_before_filter :verify_authenticity_token
+  # before_action :confirmed_logged_in
   
   def index 
     @subjects  = Subject.sorted
