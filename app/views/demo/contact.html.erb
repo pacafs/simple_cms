@@ -11,12 +11,13 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 <%= stylesheet_link_tag "application" %>
 
 <% if params[:action] == "contact" %>
 <%= javascript_include_tag "main" %>
-<%= javascript_include_tag "map" %>
+
 <% end %>
 
 </head>
@@ -68,7 +69,9 @@
     var content3 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'><div><img src='http://nightclub54.com/wp-content/uploads/2013/01/club1.png' alt='Smiley face' height='80' width='80'></div><h1>NightClub</h1></div>"
     var content4 = "<div class='my_marker' style='overflow-y: scroll; overflow-x: hidden; cursor: default; clear: both; position: relative; padding: 10px; width: 200px; height: 150px; background-color: rgb(255, 255, 255);'><div><img src='http://www.sanfranciscosentinel.com/wp-content/uploads/2008/04/barleycorn-1.jpg' alt='Smiley face' height='80' width='80'></div><h1>Classic Pub</h1></div>"
 
-
 </script>
+
+<%= render 'map' %>
+
 </body>
 </html>

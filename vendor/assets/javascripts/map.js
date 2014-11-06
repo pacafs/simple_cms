@@ -12,11 +12,12 @@ jQuery(function($){
 	var latitude;
 	var canvas = "map";
 	var myLatlng;
-
+	var infobox;
 	// 	Options buttons variables //
 	var markers = true;
 	var way = google.maps.TravelMode.DRIVING;
 	// 	Options buttons variables //
+	var mycontent = '<div class="infobox"><h2 style="color:white;">Title</h2><iframe width="250" height="150" src="//www.youtube.com/embed/Go_p6oD7AIE?autoplay=0&showinfo=0&controls=0" frameborder="0" controls="false"></iframe><br /><p>Description</p></div>';
 
 
 	jQuery.getloc = function getLocation() {
@@ -136,15 +137,33 @@ jQuery(function($){
 				content: content1
 			});
 
+			// InfoBox // 
+			infobox = new InfoBox({
+		         content: mycontent,
+		         disableAutoPan: false,
+		         maxWidth: 500,
+		         pixelOffset: new google.maps.Size(-140, 5),
+		         zIndex: null,
+		         boxStyle: {
+		            background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
+		            opacity: 0.90,
+		            width: "280px",
+		        },
+		        closeBoxMargin: "12px 4px 2px 2px",
+		        closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+		        infoBoxClearance: new google.maps.Size(1, 1)
+    		});
 
 			// Marker clicks Events //	
 			google.maps.event.addListener(marker1, 'click', function() {
-			  infowindow.setContent(content1);
-			  infowindow.open(map,marker1);
+			  // infowindow.setContent(content1);
+			  // infowindow.open(map,marker1);
+			  infobox.open(map, this);
 			});
 			google.maps.event.addListener(marker2, 'click', function() {
-			  infowindow.setContent(content2);
-			  infowindow.open(map,marker2);
+			  // infowindow.setContent(content2);
+			  // infowindow.open(map,marker2);
+			  infobox.open(map, this);
 			});
 			google.maps.event.addListener(marker3, 'click', function() {
 			  infowindow.setContent(content3);

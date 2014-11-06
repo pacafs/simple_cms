@@ -56,6 +56,8 @@ class DemoController < ApplicationController
     @end_lang = Route.find(1).end_lang
 
     @route = Route.all.first
+
+    @markers = Marker.all
     
     respond_to do |format|
       format.html {render html: @route, :layout => false }
