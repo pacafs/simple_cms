@@ -8,6 +8,12 @@ jQuery(function($){
 	// var c = "/assets/cocktail22.png";
 	// var d = "/assets/mirrors.png";
 
+	// var a = "https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/group-48.png"
+	// var b = "https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-48.png"
+	// var c = "https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/globe-48.png"
+	// var d = "https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/book-48.png"
+
+
 	var longitude;
 	var latitude;
 	var canvas = "map";
