@@ -8,7 +8,6 @@ root "demo#index"
 get "admin", :to => "access#index"
 post 'access/attempt_login', :to => 'access#attempt_login'
 
-
 resources :words do
   collection do
     get 'crazy'
@@ -19,6 +18,8 @@ end
 post 'subjects/create' => 'subjects#create'
 put 'subjects/update' => 'subjects#update'
 delete 'subjects/destroy' => 'subjects#destroy'
+
+get 'markers/new' => 'markers#new'
 
 # The same as having: get 'words/crazy' => 'words#crazy'
 

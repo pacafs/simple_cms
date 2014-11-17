@@ -17,7 +17,7 @@ jQuery(function($){
 	var markers = true;
 	var way = google.maps.TravelMode.DRIVING;
 	// 	Options buttons variables //
-	var mycontent = '<div class="infobox"><h2 style="color:white;">Title</h2><iframe width="250" height="150" src="//www.youtube.com/embed/Go_p6oD7AIE?autoplay=0&showinfo=0&controls=0" frameborder="0" controls="false"></iframe><br /><p>Description</p></div>';
+	var mycontent = '<div class="infobox"><h2 style="color:white;">Title</h2><iframe width="560" height="315" src="//www.youtube.com/embed/re4_9blE4ts" frameborder="0" allowfullscreen></iframe><br /><p>Description</p></div>';
 
 
 	jQuery.getloc = function getLocation() {

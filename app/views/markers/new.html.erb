@@ -1,0 +1,14 @@
+<h1>Markers#new</h1>
+
+<%= form_for(:marker, :url =>{:action => "create"}, html: { multipart: true }) do |m| %>
+
+<%= render(:partial => 'form', :locals => {:a => m}) %>
+
+<div><%= submit_tag('Create Marker') %></div>
+
+<% end %>
+
+<br />
+
+<%= link_to({:action => "index"},  class: "btn_link") do %><button>Back</button><% end %>
+
