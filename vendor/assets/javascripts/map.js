@@ -3,10 +3,10 @@ jQuery(function($){
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
 
-	var a = "/assets/piano6.png";
-	var b = "/assets/fork28.png";
-	var c = "/assets/cocktail22.png";
-	var d = "/assets/mirrors.png";
+	// var a = "/assets/piano6.png";
+	// var b = "/assets/fork28.png";
+	// var c = "/assets/cocktail22.png";
+	// var d = "/assets/mirrors.png";
 
 	var longitude;
 	var latitude;
