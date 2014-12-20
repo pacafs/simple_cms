@@ -55,13 +55,6 @@ jQuery(function($){
 
 			var map = new google.maps.Map( document.getElementById("map"), myOptions );
 
-			// My Position
-			// var marker = new google.maps.Marker({
-			//     position : myLatlng,
-			//     map      : map,
-			//     icon     : "/assets/point.png"
-			// });	
-
 			for (var i = 0; i < my_super_array.length; i++) { 
 
    				(function(i) {
@@ -105,96 +98,10 @@ jQuery(function($){
 			}
 
 
-
-			// if(markers == false){
-			// 	marker1.setVisible(false);
-			// 	marker2.setVisible(false);
-			// 	marker3.setVisible(false);
-			// 	marker4.setVisible(false);
-			// }
-
-			//Map Styles
-
-			// var styles = [
-			//   {
-			//     featureType: "all",
-			//     stylers: [
-			//       { saturation: 20 },
-			//       { hue: "#4EBADB" }
-			//     ]
-			//   },{
-			//     featureType: "road.arterial",
-			//     elementType: "geometry",
-			//     stylers: [
-			//       { hue: "#00ffee" },
-			//       { saturation: -50 }
-			//     ]
-			//   },{
-			//     featureType: "poi.business",
-			//     elementType: "labels",
-			//     stylers: [
-			//       { visibility: "off" }
-			//     ]
-			//   }
-			// ];
-
 			var styles = [{"stylers":[{"hue":"#ff8800"},{"gamma":0.4}]}];
+
 			map.setOptions({styles: styles});
 
-			 // InfoBox // 
-		     // infobox = new InfoBox({
-			 //         content: mycontent,
-			 //         disableAutoPan: false,
-			 //         maxWidth: 500,
-			 //         pixelOffset: new google.maps.Size(-140, 5),
-			 //         zIndex: null,
-			 //         boxStyle: {
-			 //            background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-			 //            opacity: 0.90,
-			 //            width: "280px",
-			 //        },
-			 //        closeBoxMargin: "12px 4px 2px 2px",
-			 //        closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-			 //        infoBoxClearance: new google.maps.Size(1, 1)
-	         // });
-
-			// // Marker clicks Events //	
-			// google.maps.event.addListener(marker1, 'click', function() {
-			//   // infowindow.setContent(content1);
-			//   // infowindow.open(map,marker1);
-			// });
-			// google.maps.event.addListener(marker2, 'click', function() {
-			//   // infowindow.setContent(content2);
-			//   // infowindow.open(map,marker2);
-			// });
-			// google.maps.event.addListener(marker3, 'click', function() {
-			//   infowindow.setContent(content3);
-			//   infowindow.open(map,marker3);
-			// });
-			// google.maps.event.addListener(marker4, 'click', function() {
-			//   infowindow.setContent(content4);
-			//   infowindow.open(map,marker4);
-			// });	
-
-		  //   $("#fb").on('click', function(){
-		  //   	marker1.setVisible(false);
-				// marker2.setVisible(false);
-				// marker3.setVisible(false);
-				// marker4.setVisible(false);
-				// directionsDisplay.suppressMarkers = false;
-				// calcRoute();
-			 //    directionsDisplay.setMap(map);
-		  //   });
-
-		  //   $("#go").on('click', function(){
-		  //   	marker1.setVisible(true);
-				// marker2.setVisible(true);
-				// marker3.setVisible(true);
-				// marker4.setVisible(true);
-				// directionsDisplay.suppressMarkers = true;
-				// calcRoute();
-			 //    directionsDisplay.setMap(map);
-		  //   });
 
 		    $("#be").on('click', function(){
 		    	way = google.maps.TravelMode.WALKING;
